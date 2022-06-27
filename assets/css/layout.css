@@ -1,0 +1,26 @@
+/* ================ Custom properties variables ================ */
+
+:root {
+
+  /* Base colours */
+  --htcPurple: #973280;
+  --htcDarkBlue: #04449D;
+  --htcLightBlue: #34C5F7;
+  --htcTurquoise: #01C9B7;
+  --htcGreen: #56BE69;
+  --htcYellow: #FABD03;
+  --htcLightOrange: #F7931E;
+  --htcDarkOrange: #F4643D;
+  --htcRed: #FE4A4D;
+  --htcBlack: #000000;
+  --htcGrey: #F9F9F9;
+  --htcWhite: #FFFFFF;
+
+  --purpleTint: #f5eaf2;
+  --darkBlueTint: #e6ecf5;
+  --lightBlueTint: #ebf9fe;
+  --turquoiseTint: #e6faf8;
+  --greenTint: #eef8f0;
+  --lightOrangeTint: #fef4e8;
+  --redTint: #ffeded;
+}

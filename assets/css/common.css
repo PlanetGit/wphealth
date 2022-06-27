@@ -1,0 +1,120 @@
+@import './layout.css';
+
+.main {
+  height: auto;
+}
+
+nav,
+.center {
+  margin: 0 auto !important;
+}
+
+div,
+p,
+a {
+  font-family: 'Helvetica', 'Helvetica Neue';
+}
+
+.container {
+  margin: 0 auto;
+}
+
+/* Header Links */
+.htcLink {
+  font-family: 'Helvetica', 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--htcBlack);
+  align-items: center;
+  display: flex;
+}
+
+.htcLink:hover {
+  color: var(--htcWhite);
+}
+
+/* Font styles */
+.htcH1Title {
+  font-family: 'Helvetica', 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 53px;
+  color: var(--htcBlack);
+}
+
+.htcH2Title {
+  font-family: 'Helvetica', 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 35px;
+  color: var(--htcBlack);
+}
+
+.htcH2Mobile {
+  font-family: 'Helvetica', 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 30px;
+  color: var(--htcBlack);
+}
+
+.htcH3SubTitle {
+  font-family: 'Helvetica', 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 26px;
+  color: var(--htcBlack);
+}
+
+.htcH4Title {
+  font-family: 'Helvetica', 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 26px;
+  color: var(--htcBlack);
+}
+
+.htcH5Title {
+  font-family: 'Helvetica', 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--htcBlack);
+}
+
+.htcBodyFont {
+  font-family: 'Helvetica', 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--htcBlack);
+}
+
+.htcModuleTitle {
+  font-family: 'Helvetica', 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--htcBlack);
+}
+
+.htcFooterLink {
+  font-family: 'Helvetica', 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--htcBlack);
+}
