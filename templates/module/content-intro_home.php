@@ -14,18 +14,23 @@ $image = get_field('intro_background_image');
 ?>
 
 <section>
-    <div class="relative home_intro" style="background-image: url(<?= $image; ?>);">
-        <div class="max-w-screen-xl mx-auto px-3">
-            <div class="relative float-right top-60 max-w-md lg:mr-14 md:ml-4">
-                <h1 class="htcH1Title"><?php the_field('intro_title'); ?></h1>
-                <div class="htcBodyFont mt-4">
-                    <?php the_field('intro_description'); ?>
+    <div class="relative">
+        <div class="relative home_intro" style="background-image: url(<?= $image; ?>);">
+            <div class="max-w-screen-xl mx-auto px-3">
+                <div class="relative float-right top-60 max-w-md lg:mr-14 md:ml-4">
+                    <h1 class="htcH1Title"><?php the_field('intro_title'); ?></h1>
+                    <div class="htcBodyFont mt-4">
+                        <?php the_field('intro_description'); ?>
+                    </div>
+                    <button class="mt-5 learn_more">
+                        Learn more
+                    </button>
                 </div>
-                <button class="mt-5 learn_more">
-                    Learn more
-                </button>
             </div>
         </div>
+        <div class="absolute bottom-0 w-full">
+            <div class="relative bg-purple w-11/12 h-[25px] z-10 -bottom-3"></div>
+        </div>
     </div>
-    <div class="relative bg-purple w-11/12 h-[25px] z-10" style="bottom: 142px;"></div>
 </section>
+<div class="clear-both"></div>
