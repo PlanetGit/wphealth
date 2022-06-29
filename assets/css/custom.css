@@ -1,5 +1,14 @@
 @import './layout.css';
 
+/*** Header part style ***/
+.light-link {
+  color: var(--htcWhite);
+}
+.light-link:hover {
+  color: var(--htcGrey);
+}
+
+/*** Home Page block ***/
 .enquiry {
   font-family: 'Helvetica', 'Helvetica Neue';
   font-style: normal;
@@ -48,4 +57,19 @@
 
 .clientSliderContainer {
   height: 150px;
+}
+
+
+/*** Private Label block ***/
+.kind-things-btn {
+  text-transform: uppercase;
+  padding: 5px 30px;
+  border: solid 1px var(--htcBlack);
+  border-radius: 50px;
+}
+.kind-things-btn.active, 
+.kind-things-btn:hover {
+  border: solid 1px var(--htcDarkOrange);
+  color: var(--htcWhite);
+  background-color: var(--htcDarkOrange);
 }

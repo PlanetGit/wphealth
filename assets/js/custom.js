@@ -40,3 +40,29 @@ $('.swiper-button-prev').hover(
         $(this).css('background-image', `url(${initial})`);
     }
 );
+
+// Formats slider description show/hide action
+$('.formats-content > h1 > span:first-child').on('click', function() {
+    $(this).hide();
+    $(this).next().css('display', 'flex');
+
+    // Show description
+    $(this).parents('.formats-content').find('.description').removeClass('invisible');
+});
+$('.formats-content > h1 > span:last-child').on('click', function() {
+    $(this).hide();
+    $(this).prev().css('display', 'flex');
+
+    // Hide description
+    $(this).parents('.formats-content').find('.description').addClass('invisible');
+});
+
+// Our work block description show/hide action
+$('.client-block').hover(
+    function () {
+        $(this).find('div').removeClass('invisible');
+    },
+    function () {
+        $(this).find('div').addClass('invisible');
+    }
+);

@@ -16,7 +16,11 @@
 				<div class="flex items-center justify-between w-full md:w-auto px-4 md:mx-0">
 					<a href="#">
 						<span class="sr-only">HTCHealth</span>
+						<?php if (get_mode()): ?>
+						<img alt="Workflow" class="h-8 w-auto sm:h-10" src="<?= the_field('light_header_logo', 'option') ?>">
+						<?php else: ?>
 						<img alt="Workflow" class="h-8 w-auto sm:h-10" src="<?= the_field('header_logo', 'option') ?>">
+						<?php endif; ?>
 					</a>
 					<div class="flex items-center md:hidden">
 						<button type="button">
@@ -35,7 +39,7 @@
 				<?php if (have_rows('links', 'option')) : ?>
 					<?php while (have_rows('links', 'option')) : the_row(); ?>
 						<a href="/<?php the_sub_field('link_url'); ?>" class="htcLink">
-							<span><?php the_sub_field('link_title'); ?></span>
+							<span class="<?php echo get_mode('light-link'); ?>"><?php the_sub_field('link_title'); ?></span>
 							<?php if (have_rows('sub_link')) : ?>
 								<img class="ml-2" src="<?= get_template_directory_uri() . '/assets/images/plus.svg' ?>" alt="plus" width="18" height="18">
 							<?php endif; ?>

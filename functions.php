@@ -99,3 +99,12 @@ function wphealth_scripts() {
 
 add_action('wp_enqueue_scripts', 'wphealth_scripts');
 
+// Set class of element by design
+function get_mode($class = NULL) {
+	global $template;
+	$kind = basename($template);
+	if ($class) {
+		return ($kind == "private-template.php") ? $class : '';		
+	} 
+	return ($kind == "private-template.php") ? true : false;
+}

@@ -16,7 +16,9 @@
         <div class="my-24 bg-htcGrey md:flex justify-between">
             <div class="relative py-24 px-8">
                 <p class="uppercase mb-3">Map</p>
-                <div style="width: 100%; height: 500px;"></div>
+                <div style="width: 100%; height: 100%;">
+                    <img src="<?= get_template_directory_uri() . '/assets/images/map.png' ?>" alt="Map">
+                </div>
             </div>
             <div class="pt-32 max-w-sm px-6">
                 <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">

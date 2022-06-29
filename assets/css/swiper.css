@@ -65,3 +65,18 @@
 .client-button-next, .client-button-prev {
     top: 90% !important;
 }
+.seller-button-next, .seller-button-prev {
+    top: 97% !important;
+}
+
+.home-swiper-next, .home-swiper-prev {
+    top: 32% !important;
+}
+.client-button-next, .home-swiper-next {
+    right: 32px !important;
+    left: auto;
+}
+.client-button-prev, .home-swiper-prev {
+    left: 32px !important;
+    right: auto;
+}
