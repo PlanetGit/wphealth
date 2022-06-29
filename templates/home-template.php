@@ -16,7 +16,9 @@ $layout = array(
 );
 
 foreach ($layout as $section => $content) {
-    get_template_part('templates/module/content', $content);
+    get_template_part('templates/module/content', $content, array(
+        "step_owner" => 'home',
+    ));
 
     if (str_contains($section, "parts"))
         get_template_part('templates/parts/home', $content);

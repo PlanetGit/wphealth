@@ -20,7 +20,7 @@
 </style>
 
 <section>
-    <div class="max-w-screen-xl mx-auto">
+    <div class="w-full mx-auto">
         <div class="relative md:grid grid-cols-6 gap-4">
             <div class="nutrition_background col-span-2 relative items-center p-10">
                 <span class="flex justify-center">

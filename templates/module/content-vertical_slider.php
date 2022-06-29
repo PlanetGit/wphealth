@@ -32,7 +32,7 @@
 </style>
 
 <section class="mt-24">
-    <div class="max-w-screen-xl mx-auto grid grid-cols-2 vertical-slider">
+    <div class="w-full mx-auto grid grid-cols-2 vertical-slider">
         <div thumbsSlider="" class="swiper verticalSwiper">
             <div class="swiper-wrapper">
                 <?php if (have_rows('slider_items')) : ?>

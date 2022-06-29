@@ -12,7 +12,7 @@
 
 ?>
 <section>
-    <div class="max-w-screen-xl mx-auto">
+    <div class="w-full mx-auto">
         <div class="my-24 bg-htcGrey md:flex justify-between">
             <div class="relative py-24 px-8">
                 <p class="uppercase mb-3">Map</p>

@@ -9,7 +9,7 @@
 
 ?>
 
-<div class="relative w-full md:grid grid-cols-2 px-4 my-20">
+<div class="relative w-full md:grid grid-cols-2 px-8 my-20">
     <div>
         <span>
             <img alt="Workflow" class="h-8 w-auto sm:h-10" src="<?= the_field('footer_logo', 'option') ?>">

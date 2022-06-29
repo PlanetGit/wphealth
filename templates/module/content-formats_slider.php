@@ -13,8 +13,8 @@
 ?>
 
 <section class="my-28">
-    <div class="max-w-screen-xl mx-auto">
-        <div class="relative flex justify-between px-3 md:px-0 mb-2.5">
+    <div class="w-full mx-auto">
+        <div class="relative flex justify-between px-3 md:px-8 mb-2.5">
             <p class="uppercase">Formats</p>
             <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M54.1348 26.7231C57.9275 26.7231 61.002 23.6012 61.002 19.7502C61.002 15.8992 57.9275 12.7773 54.1348 12.7773C50.3421 12.7773 47.2676 15.8992 47.2676 19.7502C47.2676 23.6012 50.3421 26.7231 54.1348 26.7231Z" fill="#FABD03" />
@@ -33,25 +33,43 @@
                     ?>
                     <div class="swiper-slide">
                         <div>
-                            <img src="<?= $image; ?>" alt="Gummies">
-                            <div class="max-w-sm px-4 mt-3">
-                                <h1 class="htcH1Title"><?= $title; ?></h1>
-                                <div class="pt-4"><?= $slider_description; ?></div>
-                                <button class="mt-5 learn_more">
-                                    Learn more
-                                </button>
+                            <img src="<?= $image; ?>" alt="<?= $title; ?>">
+                            <div class="px-4 md:pl-0 mt-3 formats-content">
+                                <h1 class="htcH1Title flex justify-between">
+                                    <?= $title; ?>
+                                    <span class="flex items-center">
+                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="12" cy="12.3516" r="11.5" fill="white" stroke="black" />
+                                            <path d="M11.5713 4.63733V20.0659" stroke="black" />
+                                            <path d="M19.7144 12.3516L4.28578 12.3516" stroke="black" />
+                                        </svg>
+                                    </span>
+                                    <span class="flex items-center hidden">
+                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="12" cy="12.3516" r="11.5" fill="white" stroke="black" />
+                                            <path d="M6.24219 7.19958L17.1518 18.1092" stroke="black" />
+                                            <path d="M17.4546 6.89661L6.54494 17.8063" stroke="black" />
+                                        </svg>
+                                    </span>
+                                </h1>
+                                <div class="description invisible">
+                                    <div class="pt-4"><?= $slider_description; ?></div>
+                                    <div class="mt-5 learn_more w-2/4">
+                                        <a href="#">Learn more</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <?php endwhile; ?>
                     <?php endif; ?>
                 </div>
-                <div class="swiper-button-next" 
+                <div class="swiper-button-next home-swiper-next" 
                     style="background-image: url('<?= get_template_directory_uri() . '/assets/images/next.svg'; ?>')"
                     data-initial="<?= get_template_directory_uri() . '/assets/images/next.svg'; ?>"
                     data-hover="<?= get_template_directory_uri() . '/assets/images/next-hover.svg'; ?>">
                 </div>
-                <div class="swiper-button-prev" 
+                <div class="swiper-button-prev home-swiper-prev" 
                     style="background-image: url('<?= get_template_directory_uri() . '/assets/images/previous.svg'; ?>')"
                     data-initial="<?= get_template_directory_uri() . '/assets/images/previous.svg'; ?>"  
                     data-hover="<?= get_template_directory_uri() . '/assets/images/prev-hover.svg'; ?>">

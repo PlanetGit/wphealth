@@ -15,9 +15,7 @@
 	</main><!-- #main -->
 	
 	<footer id="footer" class="mt-0">
-		<div class="max-w-screen-xl mx-auto">
-			<?php get_template_part('templates/footer/site-footer'); ?>
-		</div>
+		<?php get_template_part('templates/footer/site-footer'); ?>
 	</footer>
 
 </div><!-- #page -->

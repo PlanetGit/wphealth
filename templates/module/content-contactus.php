@@ -15,9 +15,9 @@ $image = get_field('contact_us_background');
 ?>
 
 <section>
-    <div class="max-w-screen-xl mx-auto">
+    <div class="w-full mx-auto">
         <div class="md:grid grid-cols-2">
-            <div class="py-12 md:py-24 md:pl-24 pr-4 bg-greenTint">
+            <div class="py-12 md:py-24 md:pl-24 pr-6 bg-greenTint">
                 <div class="px-3 md:px-0">
                     <span>
                         <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@ $image = get_field('contact_us_background');
             </div>
             <div>
                 <?php if (!empty($image)) : ?>
-                    <img src="<?= $image; ?>" alt="Contact Us">
+                    <img class="w-full" src="<?= $image; ?>" alt="Contact Us">
                 <?php endif; ?>
             </div>
         </div>

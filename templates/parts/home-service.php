@@ -18,10 +18,20 @@
         background-position: center;
         background-size: cover;
     }
+
+    .service-full {
+        min-width: 350px;
+    }
+
+    @media (min-width: 640px) {
+        .service-full {
+            min-width: 380px;
+        }
+    }
 </style>
 <section class="my-28">
-    <div class="max-w-screen-xl mx-auto">
-        <div class="relative flex justify-between px-3 md:px-0">
+    <div class="w-full mx-auto">
+        <div class="relative flex justify-between px-3 md:px-8">
             <p class="uppercase">Services</p>
             <span class="mb-2">
                 <svg width="62" height="31" viewBox="0 0 62 31" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,80 +41,48 @@
                 </svg>
             </span>
         </div>
-    </div>
-    <div class="service_background md:flex">
-        <div class="relative max-w-sm">
-            <button class="service_action rounded-r-full min-w-full border-y border-white border-r mt-10 hover:bg-white">
-                <h1 class="flex justify-between htcH1Title text-white text-left hover:text-black pl-10 pr-6 py-4">
-                    Private Label
-                    <span class="flex items-center">
-                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12.3516" r="11.5" fill="white" stroke="black" />
-                            <path d="M11.5713 4.63733V20.0659" stroke="black" />
-                            <path d="M19.7144 12.3516L4.28578 12.3516" stroke="black" />
-                        </svg>
-                    </span>
-                    <span class="flex items-center hidden">
-                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12.3516" r="11.5" fill="white" stroke="black" />
-                            <path d="M6.24219 7.19958L17.1518 18.1092" stroke="black" />
-                            <path d="M17.4546 6.89661L6.54494 17.8063" stroke="black" />
-                        </svg>
-                    </span>
-                </h1>
-            </button>
-            <button class="service_action rounded-r-full w-52 border-y border-white border-r hover:bg-white mt-4">
-                <h1 class="flex justify-between htcH1Title text-white text-left hover:text-black pl-10 pr-6 py-4">
-                    Bulk
-                    <span class="flex items-center">
-                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12.3516" r="11.5" fill="white" stroke="black" />
-                            <path d="M11.5713 4.63733V20.0659" stroke="black" />
-                            <path d="M19.7144 12.3516L4.28578 12.3516" stroke="black" />
-                        </svg>
-                    </span>
-                    <span class="flex items-center hidden">
-                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12.3516" r="11.5" fill="white" stroke="black" />
-                            <path d="M6.24219 7.19958L17.1518 18.1092" stroke="black" />
-                            <path d="M17.4546 6.89661L6.54494 17.8063" stroke="black" />
-                        </svg>
-                    </span>
-                </h1>
-            </button>
-            <button class="service_action rounded-r-full min-w-full border-y border-white border-r hover:bg-white mt-4">
-                <h1 class="flex justify-between htcH1Title text-white text-left hover:text-black pl-10 pr-6 py-4">
-                    Bespoke
-                    <span class="flex items-center">
-                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12.3516" r="11.5" fill="white" stroke="black" />
-                            <path d="M11.5713 4.63733V20.0659" stroke="black" />
-                            <path d="M19.7144 12.3516L4.28578 12.3516" stroke="black" />
-                        </svg>
-                    </span>
-                    <span class="flex items-center hidden">
-                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12.3516" r="11.5" fill="white" stroke="black" />
-                            <path d="M6.24219 7.19958L17.1518 18.1092" stroke="black" />
-                            <path d="M17.4546 6.89661L6.54494 17.8063" stroke="black" />
-                        </svg>
-                    </span>
-                </h1>
-            </button>
-        </div>
-        <div class="container">
-            <div class="mt-2 float-right">
-                <div class="max-w-md md:mt-[186px] px-6">
-                    <h3 class="htcH2Title text-white mt-8 md:mt-12"><?php the_field('services_title'); ?></h3>
-                    <div class="htcBodyFont text-white mt-4">
-                        <?php the_field('services_description'); ?>
+        <div class="service_background md:flex">
+            <div class="relative max-w-md pr-6 md:pr-0  top-5 md:top-0">
+                <?php if (have_rows('services_buttons')) : ?>
+                    <?php while (have_rows('services_buttons')) : the_row(); ?>
+                        <div class="service_action rounded-r-full <?php echo strlen(get_sub_field('button_text')) < 5 ? "w-52" : "service-full"; ?> border-y border-white border-r md:mt-10 mt-4 hover:bg-white">
+                            <a href="/<?php the_sub_field('button_link'); ?>">
+                                <h1 class="flex justify-between htcH1Title text-white text-left hover:text-black pl-4 md:pl-10 pr-6 py-4">
+                                    <?php the_sub_field('button_text'); ?>
+                                    <span class="flex items-center">
+                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="12" cy="12.3516" r="11.5" fill="white" stroke="black" />
+                                            <path d="M11.5713 4.63733V20.0659" stroke="black" />
+                                            <path d="M19.7144 12.3516L4.28578 12.3516" stroke="black" />
+                                        </svg>
+                                    </span>
+                                    <span class="flex items-center hidden">
+                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="12" cy="12.3516" r="11.5" fill="white" stroke="black" />
+                                            <path d="M6.24219 7.19958L17.1518 18.1092" stroke="black" />
+                                            <path d="M17.4546 6.89661L6.54494 17.8063" stroke="black" />
+                                        </svg>
+                                    </span>
+                                </h1>
+                            </a>
+                        </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+            </div>
+            <div class="container">
+                <div class="mt-2 float-right">
+                    <div class="max-w-md md:mt-[186px] px-6">
+                        <h3 class="htcH2Title text-white mt-8 md:mt-12"><?php the_field('services_title'); ?></h3>
+                        <div class="htcBodyFont text-white mt-4">
+                            <?php the_field('services_description'); ?>
+                        </div>
+                        <button class="mt-10 learn_more">
+                            Learn more
+                        </button>
                     </div>
-                    <button class="mt-10 learn_more">
-                        Learn more
-                    </button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="relative bg-htcOrange-dark w-11/12 float-right bottom-3 h-[25px]"></div>
+    <div class="relative bg-yellow w-11/12 float-right bottom-3 h-[25px]"></div>
 </section>
