@@ -9,9 +9,9 @@
 
 ?>
 
-<header id="header" class="z-10 relative header-effect-shrink">
-	<div class="w-full mx-auto py-6">
-		<nav class="relative flex items-center justify-between sm:h-10 px-4">
+<header id="header" class="z-10 absolute w-full mx-auto ">
+	<div class="py-6">
+		<nav class="relative flex items-center justify-between sm:h-10 md:px-4">
 			<div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
 				<div class="flex items-center justify-between w-full md:w-auto px-4 md:mx-0">
 					<a href="#">

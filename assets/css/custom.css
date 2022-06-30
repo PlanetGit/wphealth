@@ -30,12 +30,12 @@
 
 .home_intro {
   width: 100%;
-  height: 760px;
+  height: 720px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   display: block;
-  top: -130px;
+  /* top: -130px; */
   z-index: 1;
 }
 
@@ -60,16 +60,45 @@
 }
 
 
+@media (min-width: 780px) {
+  .home_intro {
+    height: 760px;
+  }
+}
+
 /*** Private Label block ***/
-.kind-things-btn {
+.seller-things-btn {
   text-transform: uppercase;
   padding: 5px 30px;
   border: solid 1px var(--htcBlack);
   border-radius: 50px;
 }
-.kind-things-btn.active, 
-.kind-things-btn:hover {
+.seller-things-btn.active, 
+.seller-things-btn:hover {
   border: solid 1px var(--htcDarkOrange);
   color: var(--htcWhite);
   background-color: var(--htcDarkOrange);
+}
+
+.product-things-btn {
+  text-transform: uppercase;
+  padding: 5px 20px;
+  border: solid 1px var(--htcBlack);
+  border-radius: 50px;
+}
+.product-things-btn.active, 
+.product-things-btn:hover {
+  border: solid 1px var(--htcGreen);
+  color: var(--htcWhite);
+  background-color: var(--htcGreen);
+}
+
+/*** Range Block Style ***/
+.range-btn {
+  width: 100%
+}
+@media (min-width: 780px) {
+  .range-btn {
+    width: 400px;
+  }
 }

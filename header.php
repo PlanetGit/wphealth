@@ -50,6 +50,9 @@
 							light: '#F7931E',
 							dark: '#F4643D',
 						},
+						'purpleTint': {
+							DEFAULT: '#f5eaf2'
+						},
 						'lightBlueTint': {
 							DEFAULT: '#ebf9fe'
 						},
@@ -89,4 +92,4 @@
 	<div id="page" class="site body">
 		<?php get_template_part('templates/header/site-header'); ?>
 
-		<div class="main relative center pt-10" role="main">
+		<div class="main relative center" role="main">

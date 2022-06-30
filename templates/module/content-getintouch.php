@@ -58,20 +58,6 @@
                             </div>
                         <?php $i += 1; endwhile; ?>
                     <?php endif; ?>
-                    <div class="flex justify-start py-6 border-t border-black">
-                        <p>02</p>
-                        <div class="pl-20">
-                            <h3 class="htcH3SubTitle">Company</h3>
-                            <input type="text" class="mt-2 text-htcGrey-dark focus:outline-none" placeholder="Name of company" />
-                        </div>
-                    </div>
-                    <div class="flex justify-start py-6 border-t border-black">
-                        <p>03</p>
-                        <div class="pl-20">
-                            <h3 class="htcH3SubTitle">Role</h3>
-                            <input type="text" class="mt-2 text-htcGrey-dark focus:outline-none" placeholder="Stockist" />
-                        </div>
-                    </div>
                     <div class="border-t border-black">
                         <div class="relative mt-8">
                             <div class="float-left">
@@ -91,5 +77,7 @@
             </div>
         </div>
     </div>
+    <?php if (isset($args['getin_bottom']) && $args['getin_bottom']): ?>
     <div class="relative float-right bg-red w-11/12 h-[25px] z-10 -bottom-3"></div>
+    <?php endif; ?>
 </section>

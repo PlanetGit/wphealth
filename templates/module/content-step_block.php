@@ -14,7 +14,7 @@
 
 <?php
 $steps = get_field('steps_slider');
-$steps_count = count($steps);
+$steps_count = isset($steps) ? count($steps) : 0;
 
 $drag_bg_color = "";
 if (isset($args['step_owner']) && $args['step_owner'] === "private") {
@@ -250,118 +250,129 @@ if (isset($args['step_owner']) && $args['step_owner'] === "private") {
 </style>
 
 <section>
-    <div class="w-full mx-auto step-bg py-20">
-        <div class="relative px-3 md:px-8">
-            <?php if (isset($args['step_owner']) && $args['step_owner'] !== "private") : ?>
-                <div class="relative flex justify-between">
-                    <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M54.1353 26.7231C57.928 26.7231 61.0025 23.6012 61.0025 19.7502C61.0025 15.8992 57.928 12.7773 54.1353 12.7773C50.3426 12.7773 47.2681 15.8992 47.2681 19.7502C47.2681 23.6012 50.3426 26.7231 54.1353 26.7231Z" fill="#973280" />
-                        <path d="M16.5247 25.2927C17.6866 26.2516 19.1587 26.8383 20.7641 26.8743C24.7151 26.9636 27.9685 23.6726 27.8976 19.6608C27.8292 15.8078 24.7322 12.7065 20.9217 12.7065C19.2394 12.7065 17.6976 13.3107 16.493 14.3167C15.0074 15.5572 12.8682 15.5324 11.3752 14.3006C10.2134 13.3417 8.74121 12.7549 7.13589 12.7189C3.18488 12.6321 -0.06854 15.9219 0.00109753 19.9337C0.0695133 23.7867 3.16655 26.888 6.97706 26.888C8.65936 26.888 10.2024 26.2838 11.407 25.2766C12.8914 24.0361 15.0318 24.0609 16.5235 25.2927H16.5247Z" fill="#973280" />
-                        <path d="M39.6206 4.93053L29.9106 14.7899C27.2287 17.513 27.2285 21.9277 29.9101 24.6506C32.5917 27.3734 36.9396 27.3732 39.6214 24.6501L49.3315 14.7908C52.0133 12.0677 52.0135 7.65292 49.3319 4.93009C46.6503 2.20726 42.3024 2.20746 39.6206 4.93053Z" fill="#973280" />
-                    </svg>
-                    <p class="uppercase" data-tooltip-target="tooltip-hover" data-tooltip-trigger="hover">Module title</p>
-                </div>
-            <?php endif; ?>
-            <div class="swiper stepSwiper">
-                <div class="swiper-wrapper">
-                    <?php if (have_rows('steps_slider')) : ?>
-                        <?php while (have_rows('steps_slider')) : the_row();
-                            $image = get_sub_field('steps_image');
-                            $title = get_sub_field('steps_title');
-                            $sub_title = get_sub_field('steps_sub_title');
-                            $description = get_sub_field('steps_description');
-                        ?>
-                            <?php if (isset($args['step_owner']) && $args['step_owner'] === "home") : ?>
-                                <!-- Home Page Block -->
-                                <div class="swiper-slide">
-                                    <div class="relative">
-                                        <h1 class="htcH1Title md:hidden"><?= $title ?></h1>
-                                        <div class="md:flex mt-2 justify-between md:grid grid-cols-2 pl-20 md:pl-0">
-                                            <div class="max-w-md">
-                                                <h1 class="htcH1Title hidden md:block"><?= $title ?></h1>
-                                                <h3 class="htcH3SubTitle mt-10 md:mt-12"><?= $sub_title ?></h3>
-                                                <div class="htcBodyFont mt-4">
-                                                    <?= $description ?>
-                                                </div>
-                                            </div>
-                                            <?php
-                                            if (!empty($image)) : ?>
-                                                <img class="mt-4 md:mt-0 mb-2" src="<?= $image ?>" alt="Step image" width="569" height="333" />
-                                            <?php endif; ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                            <?php if (isset($args['step_owner']) && $args['step_owner'] === "private") : ?>
-                                <!-- Private Label Page Block -->
-                                <div class="swiper-slide">
-                                    <div class="relative md:hidden">
-                                        <h1 class="htcH1Title md:hidden"><?= $title ?></h1>
-                                        <div class="md:flex mt-2 justify-between md:grid grid-cols-2 pl-20 md:pl-0">
-                                            <div class="max-w-md">
-                                                <h1 class="htcH1Title hidden md:block"><?= $title ?></h1>
-                                                <h3 class="htcH3SubTitle mt-10 md:mt-12"><?= $sub_title ?></h3>
-                                                <div class="htcBodyFont mt-4">
-                                                    <?= $description ?>
-                                                </div>
-                                            </div>
-                                            <?php
-                                            if (!empty($image)) : ?>
-                                                <img class="mt-4 md:mt-0 mb-2" src="<?= $image ?>" alt="Step image" width="569" height="333" />
-                                            <?php endif; ?>
-                                        </div>
-                                    </div>
-                                    <div class="relative hidden md:block">
-                                        <div class="relative items-center mt-2 ">
-                                            <span class="flex justify-center">
-                                                <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M54.1353 26.723C57.928 26.723 61.0025 23.6011 61.0025 19.7501C61.0025 15.8991 57.928 12.7772 54.1353 12.7772C50.3426 12.7772 47.2681 15.8991 47.2681 19.7501C47.2681 23.6011 50.3426 26.723 54.1353 26.723Z" fill="#01C9B7" />
-                                                    <path d="M16.5247 25.2927C17.6866 26.2516 19.1587 26.8383 20.7641 26.8743C24.7151 26.9636 27.9685 23.6726 27.8976 19.6608C27.8292 15.8078 24.7322 12.7065 20.9217 12.7065C19.2394 12.7065 17.6976 13.3107 16.493 14.3167C15.0074 15.5572 12.8682 15.5324 11.3752 14.3006C10.2134 13.3417 8.74121 12.7549 7.13589 12.7189C3.18488 12.6321 -0.06854 15.9219 0.00109753 19.9337C0.0695133 23.7867 3.16655 26.888 6.97706 26.888C8.65936 26.888 10.2024 26.2838 11.407 25.2766C12.8914 24.0361 15.0318 24.0609 16.5235 25.2927H16.5247Z" fill="#01C9B7" />
-                                                    <path d="M39.6206 4.93053L29.9106 14.7899C27.2287 17.513 27.2285 21.9277 29.9101 24.6506C32.5917 27.3734 36.9396 27.3732 39.6214 24.6501L49.3315 14.7908C52.0133 12.0677 52.0135 7.65292 49.3319 4.93009C46.6503 2.20726 42.3024 2.20746 39.6206 4.93053Z" fill="#01C9B7" />
-                                                </svg>
-                                            </span>
-                                            <h1 class="htcH1Title text-center my-3"><?= $title ?></h1>
-                                            <div class="flex justify-center pt-8">
-                                                <?php if (!empty($image)) : ?>
-                                                    <img class="mt-4 md:mt-0 mb-2" src="<?= $image ?>" alt="Step image" style="width: 272px;" />
-                                                <?php endif; ?>
-                                                <div class="ml-7 max-w-md">
-                                                    <h3 class="htcH3SubTitle"><?= $sub_title ?></h3>
+    <div class="relative">
+        <div class="w-full mx-auto <?php echo (isset($args['step_owner']) && $args['step_owner'] !== "bulk") ? "step-bg" : ""; ?> py-20">
+            <div class="relative px-3 md:px-8">
+                <?php if (isset($args['step_owner']) && $args['step_owner'] !== "private") : ?>
+                    <div class="relative flex justify-between">
+                        <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M54.1353 26.7231C57.928 26.7231 61.0025 23.6012 61.0025 19.7502C61.0025 15.8992 57.928 12.7773 54.1353 12.7773C50.3426 12.7773 47.2681 15.8992 47.2681 19.7502C47.2681 23.6012 50.3426 26.7231 54.1353 26.7231Z" fill="#973280" />
+                            <path d="M16.5247 25.2927C17.6866 26.2516 19.1587 26.8383 20.7641 26.8743C24.7151 26.9636 27.9685 23.6726 27.8976 19.6608C27.8292 15.8078 24.7322 12.7065 20.9217 12.7065C19.2394 12.7065 17.6976 13.3107 16.493 14.3167C15.0074 15.5572 12.8682 15.5324 11.3752 14.3006C10.2134 13.3417 8.74121 12.7549 7.13589 12.7189C3.18488 12.6321 -0.06854 15.9219 0.00109753 19.9337C0.0695133 23.7867 3.16655 26.888 6.97706 26.888C8.65936 26.888 10.2024 26.2838 11.407 25.2766C12.8914 24.0361 15.0318 24.0609 16.5235 25.2927H16.5247Z" fill="#973280" />
+                            <path d="M39.6206 4.93053L29.9106 14.7899C27.2287 17.513 27.2285 21.9277 29.9101 24.6506C32.5917 27.3734 36.9396 27.3732 39.6214 24.6501L49.3315 14.7908C52.0133 12.0677 52.0135 7.65292 49.3319 4.93009C46.6503 2.20726 42.3024 2.20746 39.6206 4.93053Z" fill="#973280" />
+                        </svg>
+                        <p class="uppercase" data-tooltip-target="tooltip-hover" data-tooltip-trigger="hover">Module title</p>
+                    </div>
+                <?php endif; ?>
+                <div class="swiper stepSwiper">
+                    <div class="swiper-wrapper">
+                        <?php if (have_rows('steps_slider')) : ?>
+                            <?php while (have_rows('steps_slider')) : the_row();
+                                $image = get_sub_field('steps_image');
+                                $title = get_sub_field('steps_title');
+                                $sub_title = get_sub_field('steps_sub_title');
+                                $description = get_sub_field('steps_description');
+                            ?>
+                                <?php if (isset($args['step_owner']) && ($args['step_owner'] !== "private")) : ?>
+                                    <!-- Swiper Block -->
+                                    <div class="swiper-slide">
+                                        <div class="relative">
+                                            <h1 class="htcH1Title md:hidden"><?= $title ?></h1>
+                                            <div class="md:flex mt-2 justify-between md:grid grid-cols-2 pl-20 md:pl-0">
+                                                <div class="max-w-md">
+                                                    <h1 class="htcH1Title hidden md:block"><?= $title ?></h1>
+                                                    <h3 class="htcH3SubTitle mt-10 md:mt-12"><?= $sub_title ?></h3>
                                                     <div class="htcBodyFont mt-4">
                                                         <?= $description ?>
+                                                    </div>
+                                                </div>
+                                                <?php
+                                                if (!empty($image)) : ?>
+                                                    <img class="mt-4 md:mt-0 mb-2" src="<?= $image ?>" alt="Step image" width="569" height="333" />
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if (isset($args['step_owner']) && $args['step_owner'] === "private") : ?>
+                                    <!-- Private Label Page Block -->
+                                    <div class="swiper-slide">
+                                        <div class="relative md:hidden">
+                                            <h1 class="htcH1Title md:hidden"><?= $title ?></h1>
+                                            <div class="md:flex mt-2 justify-between md:grid grid-cols-2 pl-20 md:pl-0">
+                                                <div class="max-w-md">
+                                                    <h1 class="htcH1Title hidden md:block"><?= $title ?></h1>
+                                                    <h3 class="htcH3SubTitle mt-10 md:mt-12"><?= $sub_title ?></h3>
+                                                    <div class="htcBodyFont mt-4">
+                                                        <?= $description ?>
+                                                    </div>
+                                                </div>
+                                                <?php
+                                                if (!empty($image)) : ?>
+                                                    <img class="mt-4 md:mt-0 mb-2" src="<?= $image ?>" alt="Step image" width="569" height="333" />
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                        <div class="relative hidden md:block">
+                                            <div class="relative items-center mt-2 ">
+                                                <span class="flex justify-center">
+                                                    <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M54.1353 26.723C57.928 26.723 61.0025 23.6011 61.0025 19.7501C61.0025 15.8991 57.928 12.7772 54.1353 12.7772C50.3426 12.7772 47.2681 15.8991 47.2681 19.7501C47.2681 23.6011 50.3426 26.723 54.1353 26.723Z" fill="#01C9B7" />
+                                                        <path d="M16.5247 25.2927C17.6866 26.2516 19.1587 26.8383 20.7641 26.8743C24.7151 26.9636 27.9685 23.6726 27.8976 19.6608C27.8292 15.8078 24.7322 12.7065 20.9217 12.7065C19.2394 12.7065 17.6976 13.3107 16.493 14.3167C15.0074 15.5572 12.8682 15.5324 11.3752 14.3006C10.2134 13.3417 8.74121 12.7549 7.13589 12.7189C3.18488 12.6321 -0.06854 15.9219 0.00109753 19.9337C0.0695133 23.7867 3.16655 26.888 6.97706 26.888C8.65936 26.888 10.2024 26.2838 11.407 25.2766C12.8914 24.0361 15.0318 24.0609 16.5235 25.2927H16.5247Z" fill="#01C9B7" />
+                                                        <path d="M39.6206 4.93053L29.9106 14.7899C27.2287 17.513 27.2285 21.9277 29.9101 24.6506C32.5917 27.3734 36.9396 27.3732 39.6214 24.6501L49.3315 14.7908C52.0133 12.0677 52.0135 7.65292 49.3319 4.93009C46.6503 2.20726 42.3024 2.20746 39.6206 4.93053Z" fill="#01C9B7" />
+                                                    </svg>
+                                                </span>
+                                                <h1 class="htcH1Title text-center my-3"><?= $title ?></h1>
+                                                <div class="flex justify-center pt-8">
+                                                    <?php if (!empty($image)) : ?>
+                                                        <img class="mt-4 md:mt-0 mb-2" src="<?= $image ?>" alt="Step image" style="width: 272px;" />
+                                                    <?php endif; ?>
+                                                    <div class="ml-7 max-w-md">
+                                                        <h3 class="htcH3SubTitle"><?= $sub_title ?></h3>
+                                                        <div class="htcBodyFont mt-4">
+                                                            <?= $description ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            <?php endif; ?>
-                        <?php endwhile; ?>
-                    <?php endif; ?>
+                                <?php endif; ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="step-pagination"></div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="step-pagination"></div>
-            </div>
-            <div class="range mt-14 relative z-10">
-                <input id="range" data-tooltip-target="tooltip-hover" type="range" min="1" max="<?= $steps_count ?>" value="1" class="w-full appearance-none cursor-pointer">
-                <div class="steps-range w-full flex justify-between">
-                    <div class="active selected"></div>
-                    <?php for ($i = 1; $i < $steps_count; $i++) : ?>
-                        <div></div>
-                    <?php endfor; ?>
+                <div class="range mt-14 relative z-10">
+                    <input id="range" data-tooltip-target="tooltip-hover" type="range" min="1" max="<?= $steps_count ?>" value="1" class="w-full appearance-none cursor-pointer">
+                    <div class="steps-range w-full flex justify-between">
+                        <div class="active selected"></div>
+                        <?php for ($i = 1; $i < $steps_count; $i++) : ?>
+                            <div></div>
+                        <?php endfor; ?>
+                    </div>
                 </div>
-            </div>
-            <div id="drag_tooltip" role="tooltip" class="absolute hidden z-100 py-2 px-3 rounded-full tooltip uppercase text-white <?= $drag_bg_color; ?>">
-                Drag To View
-                <div class="arrow_down_on_hover"></div>
+                <div id="drag_tooltip" role="tooltip" class="absolute hidden z-100 py-2 px-3 rounded-full tooltip uppercase text-white <?= $drag_bg_color; ?>">
+                    Drag To View
+                    <div class="arrow_down_on_hover"></div>
+                </div>
             </div>
         </div>
+        <div class="absolute bottom-0 w-full">
+            <?php if (isset($args['step_owner']) && $args['step_owner'] === "private") : ?>
+                <div class="relative bg-htcTurquoise w-11/12 h-[25px] z-10 -bottom-3"></div>
+            <?php endif; ?>
+            <?php if (isset($args['step_owner']) && $args['step_owner'] === "bespoke") : ?>
+                <div class="relative bg-yellow w-11/12 h-[25px] z-10 -bottom-3"></div>
+            <?php endif; ?>
+            <?php if (isset($args['step_owner']) && $args['step_owner'] === "bulk") : ?>
+                <div class="relative float-right bg-htcTurquoise w-11/12 h-[25px] z-10 -bottom-3"></div>
+            <?php endif; ?>
+        </div>
     </div>
-    <?php if (isset($args['step_owner']) && $args['step_owner'] === "private") : ?>
-        <div class="relative bg-htcTurquoise w-11/12 h-[25px] z-10 bottom-3"></div>
-    <?php endif; ?>
 </section>
+<div class="clear-both"></div>
 
 <script>
     var swiper = new Swiper(".stepSwiper", {

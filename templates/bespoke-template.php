@@ -1,29 +1,27 @@
-<?php /* Template Name: Private Label Template */ ?>
+<?php /* Template Name: Bespoke Template */ ?>
 <?php get_header(); ?>
 <?php
 
 $layout = array(
-    "parts_intro"   => "intro",             
-    "sticky"        => "sticky_scroll",     
+    "intro"         => "intro_block",
+    "module"        => "module_block",
     "step"          => "step_block",
-    "seller"        => "sellers_block",
+    "clients"       => "clients_slider",
+    "map"           => "map_block",
     "getintouch"    => "getintouch",
     "brochure"      => "brochure",
-    "parts_known"   => "known",
-    "clients"       => "clients_slider",
     "nutrition"     => "nutrition_block",
     "partial"       => "partial_descblock",
 );
 
 foreach ($layout as $section => $content) {
     get_template_part('templates/module/content', $content, array(
-        "clients_slider_bottom" => true,
-        "getin_bottom" => true,
-        "step_owner" => 'private',
+        "step_owner" => 'bespoke',
+        "getin_bottom" => false,
     ));
 
     if (str_contains($section, "parts"))
-        get_template_part('templates/parts/private', $content);
+        get_template_part('templates/parts/bespoke', $content);
 }
 ?>
 <?php get_footer(); ?>

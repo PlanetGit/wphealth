@@ -9,7 +9,7 @@
 
 ?>
 
-<div class="relative w-full md:grid grid-cols-2 px-8 my-20">
+<div class="relative w-full bg-htcGrey md:grid grid-cols-2 px-8 py-20">
     <div>
         <span>
             <img alt="Workflow" class="h-8 w-auto sm:h-10" src="<?= the_field('footer_logo', 'option') ?>">
@@ -26,7 +26,7 @@
                 <h3 class="htcH3SubTitle mt-4 mb-6">Newsletter Signup</h3>
                 <form action="#">
                     <div class="flex justify-between border-b border-black">
-                        <input type="email" name="newsletter_email" id="newsletter_email" class="outline-none" placeholder="Email Address">
+                        <input type="email" name="newsletter_email" id="newsletter_email" class="outline-none bg-htcGrey" placeholder="Email Address">
                         <input class="rounded-full border border-black px-6 uppercase mb-2 bg-white hover:bg-black hover:text-white" type="submit" value="Submit">
                     </div>
                 </form>

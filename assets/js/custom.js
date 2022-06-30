@@ -66,3 +66,22 @@ $('.client-block').hover(
         $(this).find('div').addClass('invisible');
     }
 );
+
+// Range Block icon show/hide action
+$('.range-btn').on('click', function() {
+    if ($(this).find('span:first-child').hasClass('hidden')) {
+        $(this).find('span:first-child').removeClass('hidden');
+        $(this).find('span:last-child').addClass('hidden');
+
+        // Hide description
+        $(this).next().addClass('hidden');
+        $(this).next().next().addClass('hidden');
+    } else {
+        $(this).find('span:first-child').addClass('hidden');
+        $(this).find('span:last-child').removeClass('hidden');
+
+        // Show description
+        $(this).next().removeClass('hidden');
+        $(this).next().next().removeClass('hidden');
+    }
+});

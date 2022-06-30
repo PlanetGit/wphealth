@@ -13,19 +13,10 @@
 ?>
 
 <section>
-    <div class="relative">
-        <?php if (isset($args['brochure_owner']) && ($args['brochure_owner'] === "format" || $args['brochure_owner'] === "bulk")) : ?>
-        <div class="absolute top-0 w-full">
-            <div class="relative float-right bg-red w-11/12 h-[25px] z-10 bottom-3"></div>
-        </div>
-        <div class="clear-both"></div>
-        <?php endif; ?>
-        <div class="w-full mx-auto">
-            <div class="md:flex justify-between">
-                <div class="md:w-3/5">
-                    <img class="w-full" src="<?php the_field('brochure_image'); ?>" alt="Brochure">
-                </div>
-                <div class="md:w-2/5 relative px-3 py-10 md:px-32 md:pt-20" style="background: <?php the_field('brochure_background_color'); ?>;">
+    <div class="w-full mx-auto px-3 md:pl-8 md:pr-0">
+        <div class="relative md:grid md:grid-cols-2">
+            <div class="flex items-center">
+                <div class="max-w-md pt-24 md:pt-0">
                     <span>
                         <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M54.1353 26.723C57.928 26.723 61.0025 23.6011 61.0025 19.7501C61.0025 15.8991 57.928 12.7772 54.1353 12.7772C50.3426 12.7772 47.2681 15.8991 47.2681 19.7501C47.2681 23.6011 50.3426 26.723 54.1353 26.723Z" fill="#FE4A4D" />
@@ -33,9 +24,27 @@
                             <path d="M39.6206 4.93053L29.9106 14.7899C27.2287 17.513 27.2285 21.9277 29.9101 24.6506C32.5917 27.3734 36.9396 27.3732 39.6214 24.6501L49.3315 14.7908C52.0133 12.0677 52.0135 7.65292 49.3319 4.93009C46.6503 2.20726 42.3024 2.20746 39.6206 4.93053Z" fill="#FE4A4D" />
                         </svg>
                     </span>
-                    <h1 class="htcH2Title mt-4"><?php the_field('brochure_title'); ?></h1>
-                    <button class="px-10 py-1 mt-8 rounded-full border border-black uppercase hover:text-white bg-white hover:bg-black">Download</button>
+                    <h1 class="max-w-sm htcH1Title mt-4"><?php the_field('module_title'); ?></h1>
+                    <h3 class="htcH3SubTitle mt-8"><?php the_field('module_sub_title_first'); ?></h3>
+                    <p class="htcBodyFont mt-4"><?php the_field('module_description_first'); ?></p>
                 </div>
+            </div>
+            <div class="mt-8 md:mt-0">
+                <img class="w-full h-full" src="<?php the_field('module_image_first'); ?>" alt="">
+            </div>
+        </div>
+        <div class="relative md:grid md:grid-cols-2">
+            <div class="hidden md:block">
+                <img class="w-full h-full" src="<?php the_field('module_image_second'); ?>" alt="">
+            </div>
+            <div class="flex items-center">
+                <div class="pt-10 pb-8 md:pt-0 md:pb-0 md:px-32">
+                    <h3 class="htcH3SubTitle"><?php the_field('module_sub_title_second'); ?></h3>
+                    <p class="htcBodyFont mt-2"><?php the_field('module_description_second'); ?></p>
+                </div>
+            </div>
+            <div class="md:hidden">
+                <img class="w-full h-full" src="<?php the_field('module_image_second'); ?>" alt="">
             </div>
         </div>
     </div>

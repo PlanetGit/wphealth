@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for home page
  *
@@ -9,26 +10,29 @@
  * @since wphealth 1.0
  */
 
+$image = get_field('intro_background_image');
+
 ?>
 
-<div class="relative md:flex justify-between">
-    <div>
-        <?php 
-        $image = get_field('portal_image');
-        if( !empty( $image ) ): ?>
-            <img src="<?php echo esc_url($image); ?>" alt="Home block image" width="570" height="573"/>
-        <?php endif; ?>
-    </div>
-    <div class="mt-10 max-w-md lg:mr-14 md:ml-4">
-        <?php 
-        $image = get_field('portal_title_image');
-        if( !empty( $image ) ): ?>
-            <img class="mb-2" src="<?php echo esc_url($image); ?>" alt="Home title image" width="60" height="30"/>
-        <?php endif; ?>
-        <h1 class="htcH1Title"><?php the_field('portal_title'); ?></h1>
-        <h3 class="htcH3SubTitle mt-12"><?php the_field('portal_sub_title'); ?></h3>
-        <div class="htcBodyFont mt-4">
-            <?php the_field('portal_description'); ?>
+<section>
+    <div class="relative">
+        <div class="relative home_intro" style="background-image: url(<?= $image; ?>);">
+            <div class="w-full mx-auto px-3">
+                <div class="relative top-32 md:top-60 max-w-md lg:mr-14 md:pl-20">
+                    <h1 class="htcH1Title text-black"><?php the_field('intro_title'); ?></h1>
+                    <div class="htcBodyFont mt-4 text-black">
+                        <?php the_field('intro_description'); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 w-full">
+            <?php if (isset($args['intro_bottom']) && !empty($args['intro_bottom'])): ?>
+            <div class="relative bg-htcOrange-light w-11/12 h-[25px] z-10 -bottom-3"></div>
+            <?php else: ?>
+            <div class="relative float-right bg-red w-11/12 h-[25px] z-10 -bottom-3"></div>
+            <?php endif; ?>
         </div>
     </div>
-</div>
+</section>
+<div class="clear-both"></div>
