@@ -17,13 +17,14 @@ $layout = array(
 
 foreach ($layout as $section => $content) {
     get_template_part('templates/module/content', $content, array(
+        "module_owner" => 'bulk',
         "step_owner" => 'bulk',
         "map_owner" => 'bulk',
         "seller_owner" => 'bulk',
         "vertical_owner" => 'bulk',
         "brochure_owner" => 'bulk',
         "intro_bottom" => 'bulk',
-        "getin_bottom" => false,
+        "getin_owner" => 'bulk',
     ));
 
     if (str_contains($section, "parts"))

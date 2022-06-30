@@ -18,7 +18,7 @@ $layout = array(
 foreach ($layout as $section => $content) {
     get_template_part('templates/module/content', $content, array(
         "clients_slider_bottom" => true,
-        "getin_bottom" => true,
+        "brochure_owner" => 'private',
         "step_owner" => 'private',
     ));
 

@@ -14,8 +14,15 @@
 
 <section>
     <div class="relative">
-        <?php if (isset($args['brochure_owner']) && ($args['brochure_owner'] === "format" || $args['brochure_owner'] === "bulk")) : ?>
+        <?php if (isset($args['brochure_owner']) && ($args['brochure_owner'] === "format" || $args['brochure_owner'] === "bulk" || $args['brochure_owner'] === "private")) : ?>
         <div class="absolute top-0 w-full">
+            <div class="relative float-right bg-red w-11/12 h-[25px] z-10 bottom-3"></div>
+        </div>
+        <div class="clear-both"></div>
+        <?php endif; ?>
+        
+        <?php if (isset($args['brochure_owner']) && $args['brochure_owner'] === "portal") : ?>
+        <div class="absolute md:hidden top-0 w-full">
             <div class="relative float-right bg-red w-11/12 h-[25px] z-10 bottom-3"></div>
         </div>
         <div class="clear-both"></div>
@@ -38,5 +45,12 @@
                 </div>
             </div>
         </div>
+        
+        <?php if (isset($args['brochure_owner']) && $args['brochure_owner'] === "portal") : ?>
+        <div class="absolute hidden md:block bottom-0 w-full">
+            <div class="relative bg-red w-11/12 h-[25px] z-10 -bottom-3"></div>
+        </div>
+        <div class="clear-both"></div>
+        <?php endif; ?>
     </div>
 </section>

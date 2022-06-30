@@ -65,7 +65,8 @@
 .client-button-next, .client-button-prev {
     top: 90% !important;
 }
-.seller-button-next, .seller-button-prev {
+.seller-button-next, .seller-button-prev,
+.range-swiper-next, .range-swiper-prev {
     top: 97% !important;
 }
 

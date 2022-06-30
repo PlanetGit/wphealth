@@ -15,11 +15,13 @@
 <section>
     <?php if (isset($args['seller_owner']) && $args['seller_owner'] === 'format') : ?>
         <div class="w-full mx-auto pt-32">
+    <?php elseif (isset($args['seller_owner']) && $args['seller_owner'] === 'portal') : ?>
+        <div class="w-full mx-auto pt-24">
     <?php else: ?>
         <div class="w-full mx-auto py-24">
     <?php endif; ?>
 
-        <?php if (!isset($args['seller_owner'])) : ?>
+        <?php if (!isset($args['seller_owner']) || (isset($args['seller_owner']) && $args['seller_owner'] === 'portal')) : ?>
             <div class="relative flex justify-between px-3 md:px-8 mb-2.5">
                 <p class="uppercase">Best Sellers</p>
                 <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -112,10 +114,10 @@
                                 <div class="swiper-button-prev seller-button-prev" style="background-image: url('<?= get_template_directory_uri() . '/assets/images/previous.svg'; ?>')" data-initial="<?= get_template_directory_uri() . '/assets/images/previous.svg'; ?>" data-hover="<?= get_template_directory_uri() . '/assets/images/prev-hover.svg'; ?>"></div>
                             </div>
                         </div>
-                        <div class="md:pl-20 md:mt-60">
-                            <h3 class="htcH3SubTitle">Beauty</h3>
-                            <p class="mt-4 mb-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam autem qui omnis consequuntur itaque fugit quasi obcaecati deserunt amet iste.</p>
-                            <a class="learn_more" href="#">View Gummies</a>
+                        <div class="md:pl-20 mt-8 md:mt-60">
+                            <h3 class="htcH3SubTitle"><?php the_sub_field('item_sub_title'); ?></h3>
+                            <p class="mt-4 mb-6"><?php the_sub_field('item_description'); ?></p>
+                            <a class="learn_more" href="#"><?php the_sub_field('button_text'); ?></a>
                         </div>
                     </div>
                 <?php endwhile; ?>

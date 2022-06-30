@@ -37,7 +37,7 @@
                                     <div class="swiper-slide">
                                         <div>
                                             <img src="<?php the_sub_field('category_image'); ?>" alt="<?php the_sub_field('category_title'); ?>">
-                                            <p class="text-center"><?php echo sprintf("%02d", $i) . '/' . sprintf("%02d", $count); ?></p>
+                                            <p class="text-center pt-6"><?php echo sprintf("%02d", $i) . '/' . sprintf("%02d", $count); ?></p>
                                         </div>
                                     </div>
                                 <?php

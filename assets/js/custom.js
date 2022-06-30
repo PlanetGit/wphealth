@@ -85,3 +85,15 @@ $('.range-btn').on('click', function() {
         $(this).next().next().removeClass('hidden');
     }
 });
+
+// Testimonial Block hover action
+$('.testimonial').hover(
+    function () {
+        $(this).find('.content').removeClass('hidden');
+        $(this).find('.flex').addClass('hidden');
+    },
+    function () {
+        $(this).find('.content').addClass('hidden');
+        $(this).find('.flex').removeClass('hidden');
+    }
+);

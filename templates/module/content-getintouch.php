@@ -12,7 +12,7 @@
 
 ?>
 
-<section class="clear-both">
+<section>
     <div class="w-full mx-auto my-20">
         <div class="relative">
             <div class="flex justify-between px-3 md:px-8">
@@ -38,8 +38,10 @@
                                     <div class="flex justify-between space-x-4">
                                     <?php if (have_rows('item_fields_property')) : ?>
                                     <?php while (have_rows('item_fields_property')) : the_row(); ?>
-                                    
-                                    <?php if (get_sub_field('item_field_types') !== "checkbox") : ?>
+
+                                    <?php if (get_sub_field('item_field_types') == "textarea") : ?>
+                                        <textarea name="<?php the_sub_field('item_field_name'); ?>" placeholder="<?= the_sub_field('item_field_place'); ?>" class="focus:outline-none w-full mt-4" rows="4" cols="50"></textarea>
+                                    <?php elseif (get_sub_field('item_field_types') !== "checkbox") : ?>
                                         <input type="<?php the_sub_field('item_field_types'); ?>" name="<?php the_sub_field('item_field_name'); ?>" class="mt-2 text-htcGrey-dark focus:outline-none" placeholder="<?= the_sub_field('item_field_place'); ?>" />
                                     <?php else: ?>
                                         <div class="flex items-center pt-2">
@@ -77,7 +79,4 @@
             </div>
         </div>
     </div>
-    <?php if (isset($args['getin_bottom']) && $args['getin_bottom']): ?>
-    <div class="relative float-right bg-red w-11/12 h-[25px] z-10 -bottom-3"></div>
-    <?php endif; ?>
 </section>

@@ -58,7 +58,10 @@
 						},
 						'greenTint': {
 							DEFAULT: '#eef8f0'
-						}
+						},
+						'turquoiseTint': {
+							DEFAULT: '#e6faf8'
+						},
 					},
 					margin: {
 						'186px': '186px',

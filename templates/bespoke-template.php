@@ -8,6 +8,7 @@ $layout = array(
     "step"          => "step_block",
     "clients"       => "clients_slider",
     "map"           => "map_block",
+    "grid"          => "grid_items",
     "getintouch"    => "getintouch",
     "brochure"      => "brochure",
     "nutrition"     => "nutrition_block",
@@ -16,8 +17,9 @@ $layout = array(
 
 foreach ($layout as $section => $content) {
     get_template_part('templates/module/content', $content, array(
+        "module_owner" => 'bespoke',
         "step_owner" => 'bespoke',
-        "getin_bottom" => false,
+        "getin_owner" => 'bespoke',
     ));
 
     if (str_contains($section, "parts"))
