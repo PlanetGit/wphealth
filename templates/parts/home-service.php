@@ -13,7 +13,6 @@
 ?>
 <style>
     .service_background {
-        background-image: url('<?= the_field('services_background'); ?>');
         height: 740px;
         background-position: center;
         background-size: cover;
@@ -41,48 +40,91 @@
                 </svg>
             </span>
         </div>
-        <div class="service_background md:flex">
-            <div class="relative max-w-md pr-6 md:pr-0  top-5 md:top-0">
-                <?php if (have_rows('services_buttons')) : ?>
-                    <?php while (have_rows('services_buttons')) : the_row(); ?>
-                        <div class="service_action rounded-r-full <?php echo strlen(get_sub_field('button_text')) < 5 ? "w-52" : "service-full"; ?> border-y border-white border-r md:mt-10 mt-4 hover:bg-white">
-                            <a href="/<?php the_sub_field('button_link'); ?>">
-                                <h1 class="flex justify-between htcH1Title text-white text-left hover:text-black pl-4 md:pl-10 pr-6 py-4">
-                                    <?php the_sub_field('button_text'); ?>
-                                    <span class="flex items-center">
-                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="12" cy="12.3516" r="11.5" fill="white" stroke="black" />
-                                            <path d="M11.5713 4.63733V20.0659" stroke="black" />
-                                            <path d="M19.7144 12.3516L4.28578 12.3516" stroke="black" />
-                                        </svg>
-                                    </span>
-                                    <span class="flex items-center hidden">
-                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="12" cy="12.3516" r="11.5" fill="white" stroke="black" />
-                                            <path d="M6.24219 7.19958L17.1518 18.1092" stroke="black" />
-                                            <path d="M17.4546 6.89661L6.54494 17.8063" stroke="black" />
-                                        </svg>
-                                    </span>
-                                </h1>
-                            </a>
+        <div class="relative">
+            <div class="absolute z-10">
+                <?php if (have_rows('service_items')) : ?>
+                    <?php $i = 0; while (have_rows('service_items')) : the_row(); ?>
+                        <div class="max-w-md pr-6 md:pr-0  top-5 md:top-0">
+                            <div data-index="<?= $i; ?>" class="service_action rounded-r-full <?php echo strlen(get_sub_field('services_label')) < 5 ? "w-52" : "service-full"; ?> border-y border-white border-r md:mt-10 mt-4 hover:bg-white hover:cursor-pointer">
+                                <div>
+                                    <h1 class="flex justify-between htcH1Title text-white text-left hover:text-black pl-4 md:pl-10 pr-6 py-3 md:py-4">
+                                        <?php the_sub_field('services_label'); ?>
+                                        <span class="flex items-center">
+                                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="12" cy="12.3516" r="11.5" fill="white" stroke="black" />
+                                                <path d="M11.5713 4.63733V20.0659" stroke="black" />
+                                                <path d="M19.7144 12.3516L4.28578 12.3516" stroke="black" />
+                                            </svg>
+                                        </span>
+                                        <span class="flex items-center hidden">
+                                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="12" cy="12.3516" r="11.5" fill="white" stroke="black" />
+                                                <path d="M6.24219 7.19958L17.1518 18.1092" stroke="black" />
+                                                <path d="M17.4546 6.89661L6.54494 17.8063" stroke="black" />
+                                            </svg>
+                                        </span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    <?php $i += 1; endwhile; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+        <div class="swiper servicesSwiper">
+            <div class="swiper-wrapper">
+                <?php if (have_rows('service_items')) : ?>
+                    <?php while (have_rows('service_items')) : the_row(); ?>
+                        <div class="swiper-slide">
+                            <div class="service_background md:flex" style="background-image: url('<?= the_sub_field('services_background'); ?>');">
+                                <div class="relative max-w-md pr-6 md:pr-0  top-5 md:top-0">
+
+                                </div>
+                                <div class="container">
+                                    <div class="mt-2 float-right">
+                                        <div class="max-w-md md:mt-[186px] px-6">
+                                            <h3 class="htcH2Title text-white mt-80 md:mt-12" 
+                                                style="color: <?php the_sub_field('services_font_color') ? the_sub_field('services_font_color'): ''; ?>" >
+                                                <?php the_sub_field('services_title'); ?>
+                                            </h3>
+                                            <div class="htcBodyFont text-white mt-4"
+                                                style="color: <?php the_sub_field('services_font_color') ? the_sub_field('services_font_color'): ''; ?>">
+                                                <?php the_sub_field('services_description'); ?>
+                                            </div>
+                                            <div class="mt-10">
+                                                <a class="learn_more" href="/<?php the_sub_field('button_link'); ?>" target="_blank">
+                                                    <?php the_sub_field('button_text'); ?>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     <?php endwhile; ?>
                 <?php endif; ?>
             </div>
-            <div class="container">
-                <div class="mt-2 float-right">
-                    <div class="max-w-md md:mt-[186px] px-6">
-                        <h3 class="htcH2Title text-white mt-8 md:mt-12"><?php the_field('services_title'); ?></h3>
-                        <div class="htcBodyFont text-white mt-4">
-                            <?php the_field('services_description'); ?>
-                        </div>
-                        <button class="mt-10 learn_more">
-                            Learn more
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <div class="service-pagination"></div>
         </div>
     </div>
-    <div class="relative bg-yellow w-11/12 float-right bottom-3 h-[25px]"></div>
+    <div class="relative bg-yellow w-11/12 float-right bottom-3 h-[25px] z-10"></div>
 </section>
+<div class="clear-both"></div>
+
+<script>
+    var serviceSwiper = new Swiper(".servicesSwiper", {
+        pagination: {
+            el: '.service-pagination',
+            clickable: true,
+            renderBullet: function(index, className) {
+                return `<span class="dot swiper-pagination-bullet hidden service-${index}"></span>`;
+            },
+        },
+        allowTouchMove: false,
+    });
+    // Next/Prev action customized
+    $('.service_action').on('click', function() {
+        const idx = $(this).data('index');
+        $(`.service-${idx}`).trigger('click');
+    });
+</script>

@@ -47,6 +47,14 @@ a {
   color: var(--htcBlack);
 }
 
+.htcH1Mobile {
+  font-family: 'Helvetica', 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 46px;
+}
+
 .htcH2Title {
   font-family: 'Helvetica', 'Helvetica Neue';
   font-style: normal;

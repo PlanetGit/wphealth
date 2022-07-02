@@ -35,7 +35,7 @@
                         <div>
                             <img src="<?= $image; ?>" alt="<?= $title; ?>">
                             <div class="px-4 md:pl-0 mt-3 formats-content">
-                                <h1 class="htcH1Title flex justify-between">
+                                <h1 class="htcH1Title flex justify-between cursor-pointer">
                                     <?= $title; ?>
                                     <span class="flex items-center">
                                         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +54,7 @@
                                 </h1>
                                 <div class="description invisible">
                                     <div class="pt-4"><?= $slider_description; ?></div>
-                                    <div class="mt-5 learn_more w-2/4">
+                                    <div class="mt-5 learn_more w-2/4 text-center">
                                         <a href="#">Learn more</a>
                                     </div>
                                 </div>

@@ -46,7 +46,7 @@
             </div>
         </div>
         
-        <?php if (isset($args['brochure_owner']) && $args['brochure_owner'] === "portal") : ?>
+        <?php if (isset($args['brochure_owner']) && ($args['brochure_owner'] === "portal" || $args['brochure_owner'] === "bespoke")) : ?>
         <div class="absolute hidden md:block bottom-0 w-full">
             <div class="relative bg-red w-11/12 h-[25px] z-10 -bottom-3"></div>
         </div>

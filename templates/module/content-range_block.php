@@ -35,8 +35,8 @@
                             <?php if (have_rows('range_category')) : ?>
                                 <?php while (have_rows('range_category')) : the_row(); ?>
                                     <div class="swiper-slide">
-                                        <div>
-                                            <img src="<?php the_sub_field('category_image'); ?>" alt="<?php the_sub_field('category_title'); ?>">
+                                        <div class="h-full">
+                                            <img class="h-full" src="<?php the_sub_field('category_image'); ?>" alt="<?php the_sub_field('category_title'); ?>">
                                             <p class="text-center pt-6"><?php echo sprintf("%02d", $i) . '/' . sprintf("%02d", $count); ?></p>
                                         </div>
                                     </div>

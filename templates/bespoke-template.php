@@ -20,6 +20,7 @@ foreach ($layout as $section => $content) {
         "module_owner" => 'bespoke',
         "step_owner" => 'bespoke',
         "getin_owner" => 'bespoke',
+        "brochure_owner" => 'bespoke',
     ));
 
     if (str_contains($section, "parts"))

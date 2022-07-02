@@ -79,6 +79,14 @@ function wphealth_scripts() {
 		array(
 			'type'          => 'script',
 			'handle'        => 'custom-script',
+			'url'           => $assets_path . '/js/style-actions.js',
+			'source'        => 'LOCAL',
+			'dep'           => [],
+			'footer'        => true
+		),
+		array(
+			'type'          => 'script',
+			'handle'        => 'custom-script',
 			'url'           => $assets_path . '/js/custom.js',
 			'source'        => 'LOCAL',
 			'dep'           => [],
