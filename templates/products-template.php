@@ -1,12 +1,22 @@
 <?php /* Template Name: Products Template */ ?>
 <?php get_header(); ?>
-<?php
-    $layout = array(
-        "home" => "block"
-    );
 
-    foreach ($layout as $section => $content) {
-        get_template_part('templates/module/content', $content);    
-    }
+<?php 
+    global $property;
+    $property = array(
+        "introblock_owner" => "products",
+        "newsletter_owner" => 'products'
+    );
 ?>
+
+<div class="main relative center" role="main">
+
+    <?php while ( have_posts() ) : the_post(); ?>
+
+        <?php the_content(); ?>
+
+    <?php endwhile; ?>
+
+</div>
+
 <?php get_footer(); ?>

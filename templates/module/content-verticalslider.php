@@ -10,6 +10,8 @@
  * @since wphealth 1.0
  */
 
+global $property;
+
 ?>
 
 <style>
@@ -32,7 +34,10 @@
 </style>
 
 <section>
-    <div class="relative pt-24 <?= (isset($args['seller_owner']) && $args['seller_owner'] === 'bulk') ? "bg-htcGrey" : ""; ?>">
+    <div class="relative 
+        <?= (isset($property['seller_owner']) && $property['seller_owner'] === 'bulk') ? "bg-htcGrey" : ""; ?>
+        <?= (isset($property['seller_owner']) && $property['seller_owner'] === 'format') ? "pt-24" : ""; ?>
+        ">
         <div class="w-full mx-auto grid grid-cols-2 vertical-slider">
             <div thumbsSlider="" class="swiper verticalSwiper">
                 <div class="swiper-wrapper">
@@ -49,26 +54,30 @@
             </div>
             <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper verticalSwiper2 md:pl-10">
                 <div class="swiper-wrapper">
-                    <?php if (have_rows('slider_items')) : ?>
-                        <?php while (have_rows('slider_items')) : the_row(); ?>
+                    <?php 
+                        if (have_rows('slider_items')) : 
+                            $items = get_field('slider_items');
+                            $count = isset($items) ? count($items) : 0;
+                    ?>
+                        <?php $i = 1; while (have_rows('slider_items')) : the_row(); ?>
                             <div class="swiper-slide">
                                 <div class="cursor-pointer">
                                     <span>
                                         <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M55.024 26.723C58.8166 26.723 61.8912 23.6011 61.8912 19.7501C61.8912 15.8991 58.8166 12.7772 55.024 12.7772C51.2313 12.7772 48.1567 15.8991 48.1567 19.7501C48.1567 23.6011 51.2313 26.723 55.024 26.723Z" fill="black" />
-                                            <path d="M17.4134 25.2927C18.5753 26.2516 20.0474 26.8383 21.6527 26.8743C25.6038 26.9636 28.8572 23.6726 28.7863 19.6608C28.7179 15.8078 25.6209 12.7065 21.8103 12.7065C20.128 12.7065 18.5862 13.3107 17.3816 14.3167C15.896 15.5572 13.7568 15.5324 12.2639 14.3006C11.102 13.3417 9.62989 12.7549 8.02456 12.7189C4.07355 12.6321 0.820132 15.9219 0.889769 19.9337C0.958185 23.7867 4.05522 26.888 7.86574 26.888C9.54803 26.888 11.0911 26.2838 12.2957 25.2766C13.78 24.0361 15.9205 24.0609 17.4122 25.2927H17.4134Z" fill="black" />
-                                            <path d="M40.5092 4.93053L30.7992 14.7899C28.1174 17.513 28.1172 21.9277 30.7988 24.6506C33.4804 27.3734 37.8283 27.3732 40.5101 24.6501L50.2201 14.7908C52.9019 12.0677 52.9021 7.65292 50.2206 4.93009C47.539 2.20726 43.1911 2.20746 40.5092 4.93053Z" fill="black" />
+                                            <path d="M55.024 26.723C58.8166 26.723 61.8912 23.6011 61.8912 19.7501C61.8912 15.8991 58.8166 12.7772 55.024 12.7772C51.2313 12.7772 48.1567 15.8991 48.1567 19.7501C48.1567 23.6011 51.2313 26.723 55.024 26.723Z" fill="<?php the_sub_field('thumb_icon_color'); ?>" />
+                                            <path d="M17.4134 25.2927C18.5753 26.2516 20.0474 26.8383 21.6527 26.8743C25.6038 26.9636 28.8572 23.6726 28.7863 19.6608C28.7179 15.8078 25.6209 12.7065 21.8103 12.7065C20.128 12.7065 18.5862 13.3107 17.3816 14.3167C15.896 15.5572 13.7568 15.5324 12.2639 14.3006C11.102 13.3417 9.62989 12.7549 8.02456 12.7189C4.07355 12.6321 0.820132 15.9219 0.889769 19.9337C0.958185 23.7867 4.05522 26.888 7.86574 26.888C9.54803 26.888 11.0911 26.2838 12.2957 25.2766C13.78 24.0361 15.9205 24.0609 17.4122 25.2927H17.4134Z" fill="<?php the_sub_field('thumb_icon_color'); ?>" />
+                                            <path d="M40.5092 4.93053L30.7992 14.7899C28.1174 17.513 28.1172 21.9277 30.7988 24.6506C33.4804 27.3734 37.8283 27.3732 40.5101 24.6501L50.2201 14.7908C52.9019 12.0677 52.9021 7.65292 50.2206 4.93009C47.539 2.20726 43.1911 2.20746 40.5092 4.93053Z" fill="<?php the_sub_field('thumb_icon_color'); ?>" />
                                         </svg>
                                     </span>
                                     <h1 class="htcH2Mobile md:htcH1Title mt-4">
                                         <?php the_sub_field('thumb_title'); ?>
                                     </h1>
                                     <div class="htcModuleTitle text-left mt-12 md:mt-20">
-                                        <?php the_sub_field('thumb_number'); ?>
+                                        <?= sprintf('%02d', $i) . '/' . sprintf('%02d', $count); ?>
                                     </div>
                                 </div>
                             </div>
-                        <?php endwhile; ?>
+                        <?php $i += 1; endwhile; ?>
                     <?php endif; ?>
                 </div>
                 <div class="vertical-button-next"></div>
@@ -76,7 +85,7 @@
             </div>
         </div>
         
-        <?php if (isset($args['seller_owner']) && $args['seller_owner'] === "bulk") : ?>
+        <?php if (isset($property['seller_owner']) && $property['seller_owner'] === "bulk") : ?>
             <div class="absolute bottom-0 w-full">
                 <div class="relative bg-htcBlue-light w-11/12 h-[25px] z-10 -bottom-3"></div>
             </div>

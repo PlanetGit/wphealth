@@ -12,9 +12,8 @@
  */
 
 ?>
-	</main><!-- #main -->
 	
-	<footer id="footer" class="mt-0">
+	<footer id="footer" class="mt-0 bg-htcGrey">
 		<?php get_template_part('templates/footer/site-footer'); ?>
 	</footer>
 

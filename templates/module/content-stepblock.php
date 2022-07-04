@@ -13,11 +13,13 @@
 ?>
 
 <?php
+global $property;
+
 $steps = get_field('steps_slider');
 $steps_count = isset($steps) ? count($steps) : 0;
 
 $drag_bg_color = "";
-if (isset($args['step_owner']) && $args['step_owner'] === "private") {
+if (isset($property['step_owner']) && $property['step_owner'] === "private") {
     $drag_bg_color = "bg-htcTurquoise";
 } else {
     $drag_bg_color = "bg-purple";
@@ -249,20 +251,18 @@ if (isset($args['step_owner']) && $args['step_owner'] === "private") {
     }
 </style>
 
-
-
 <section>
     <div class="relative">
-        <div class="w-full mx-auto <?= (isset($args['step_owner']) && $args['step_owner'] == "home") ? "pt-32" : "py-20"; ?> <?= (isset($args['step_owner']) && $args['step_owner'] == "private") ? "step-bg" : ""; ?>">
+        <div class="w-full mx-auto <?= (isset($property['step_owner']) && $property['step_owner'] == "home") ? "pt-32" : "py-20"; ?> <?= (isset($property['step_owner']) && $property['step_owner'] == "private") ? "step-bg" : ""; ?>">
             <div class="relative px-3 md:px-8">
-                <?php if (isset($args['step_owner']) && $args['step_owner'] !== "private") : ?>
+                <?php if (isset($property['step_owner']) && $property['step_owner'] !== "private") : ?>
                     <div class="relative flex justify-between">
                         <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M54.1353 26.723C57.928 26.723 61.0025 23.6011 61.0025 19.7501C61.0025 15.8991 57.928 12.7773 54.1353 12.7773C50.3426 12.7773 47.2681 15.8991 47.2681 19.7501C47.2681 23.6011 50.3426 26.723 54.1353 26.723Z" fill="#F7931E"/>
-                            <path d="M16.5247 25.2927C17.6866 26.2516 19.1587 26.8384 20.7641 26.8744C24.7151 26.9637 27.9685 23.6726 27.8976 19.6608C27.8292 15.8078 24.7322 12.7066 20.9217 12.7066C19.2394 12.7066 17.6976 13.3107 16.493 14.3167C15.0074 15.5572 12.8682 15.5324 11.3752 14.3006C10.2134 13.3417 8.74121 12.755 7.13589 12.719C3.18488 12.6321 -0.06854 15.922 0.00109753 19.9337C0.0695133 23.7867 3.16655 26.888 6.97706 26.888C8.65936 26.888 10.2024 26.2839 11.407 25.2766C12.8914 24.0361 15.0318 24.0609 16.5235 25.2927H16.5247Z" fill="#F7931E"/>
-                            <path d="M39.6206 4.93056L29.9106 14.7899C27.2287 17.513 27.2285 21.9278 29.9101 24.6506C32.5917 27.3734 36.9396 27.3732 39.6214 24.6502L49.3315 14.7908C52.0133 12.0677 52.0135 7.65296 49.3319 4.93012C46.6503 2.20729 42.3024 2.20749 39.6206 4.93056Z" fill="#F7931E"/>
+                            <path d="M54.1353 26.723C57.928 26.723 61.0025 23.6011 61.0025 19.7501C61.0025 15.8991 57.928 12.7773 54.1353 12.7773C50.3426 12.7773 47.2681 15.8991 47.2681 19.7501C47.2681 23.6011 50.3426 26.723 54.1353 26.723Z" fill="<?php the_field('steps_icon_color'); ?>"/>
+                            <path d="M16.5247 25.2927C17.6866 26.2516 19.1587 26.8384 20.7641 26.8744C24.7151 26.9637 27.9685 23.6726 27.8976 19.6608C27.8292 15.8078 24.7322 12.7066 20.9217 12.7066C19.2394 12.7066 17.6976 13.3107 16.493 14.3167C15.0074 15.5572 12.8682 15.5324 11.3752 14.3006C10.2134 13.3417 8.74121 12.755 7.13589 12.719C3.18488 12.6321 -0.06854 15.922 0.00109753 19.9337C0.0695133 23.7867 3.16655 26.888 6.97706 26.888C8.65936 26.888 10.2024 26.2839 11.407 25.2766C12.8914 24.0361 15.0318 24.0609 16.5235 25.2927H16.5247Z" fill="<?php the_field('steps_icon_color'); ?>"/>
+                            <path d="M39.6206 4.93056L29.9106 14.7899C27.2287 17.513 27.2285 21.9278 29.9101 24.6506C32.5917 27.3734 36.9396 27.3732 39.6214 24.6502L49.3315 14.7908C52.0133 12.0677 52.0135 7.65296 49.3319 4.93012C46.6503 2.20729 42.3024 2.20749 39.6206 4.93056Z" fill="<?php the_field('steps_icon_color'); ?>"/>
                         </svg>
-                        <p class="uppercase" data-tooltip-target="tooltip-hover" data-tooltip-trigger="hover">Module title</p>
+                        <p class="uppercase" data-tooltip-target="tooltip-hover" data-tooltip-trigger="hover"><?php the_field('steps_title'); ?></p>
                     </div>
                 <?php endif; ?>
                 <div class="swiper stepSwiper">
@@ -274,7 +274,7 @@ if (isset($args['step_owner']) && $args['step_owner'] === "private") {
                                 $sub_title = get_sub_field('steps_sub_title');
                                 $description = get_sub_field('steps_description');
                             ?>
-                                <?php if (isset($args['step_owner']) && ($args['step_owner'] !== "private")) : ?>
+                                <?php if (isset($property['step_owner']) && ($property['step_owner'] !== "private")) : ?>
                                     <!-- Swiper Block -->
                                     <div class="swiper-slide">
                                         <div class="relative">
@@ -295,7 +295,7 @@ if (isset($args['step_owner']) && $args['step_owner'] === "private") {
                                         </div>
                                     </div>
                                 <?php endif; ?>
-                                <?php if (isset($args['step_owner']) && $args['step_owner'] === "private") : ?>
+                                <?php if (isset($property['step_owner']) && $property['step_owner'] === "private") : ?>
                                     <!-- Private Label Page Block -->
                                     <div class="swiper-slide">
                                         <div class="relative md:hidden">
@@ -362,13 +362,13 @@ if (isset($args['step_owner']) && $args['step_owner'] === "private") {
             </div>
         </div>
         <div class="absolute bottom-0 w-full">
-            <?php if (isset($args['step_owner']) && $args['step_owner'] === "private") : ?>
+            <?php if (isset($property['step_owner']) && $property['step_owner'] === "private") : ?>
                 <div class="relative bg-htcTurquoise w-11/12 h-[25px] z-10 -bottom-3"></div>
             <?php endif; ?>
-            <?php if (isset($args['step_owner']) && $args['step_owner'] === "bespoke") : ?>
-                <div class="relative bg-yellow w-11/12 h-[25px] z-10 -bottom-3"></div>
+            <?php if (isset($property['step_owner']) && $property['step_owner'] === "bespoke") : ?>
+                <div class="relative bg-htcOrange-light w-11/12 h-[25px] z-10 -bottom-3"></div>
             <?php endif; ?>
-            <?php if (isset($args['step_owner']) && $args['step_owner'] === "bulk") : ?>
+            <?php if (isset($property['step_owner']) && $property['step_owner'] === "bulk") : ?>
                 <div class="relative float-right bg-htcTurquoise w-11/12 h-[25px] z-10 -bottom-3"></div>
             <?php endif; ?>
         </div>

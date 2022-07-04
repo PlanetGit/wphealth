@@ -10,22 +10,24 @@
  * @since wphealth 1.0
  */
 
+global $property;
+
 ?>
 
 <section>
     <div class="relative">
-        <?php if (isset($args['brochure_owner']) && ($args['brochure_owner'] === "format" || $args['brochure_owner'] === "bulk" || $args['brochure_owner'] === "private")) : ?>
-        <div class="absolute top-0 w-full">
-            <div class="relative float-right bg-red w-11/12 h-[25px] z-10 bottom-3"></div>
-        </div>
-        <div class="clear-both"></div>
+        <?php if (isset($property['brochure_owner']) && ($property['brochure_owner'] === "format" || $property['brochure_owner'] === "bulk" || $property['brochure_owner'] === "private")) : ?>
+            <div class="absolute top-0 w-full">
+                <div class="relative float-right bg-red w-11/12 h-[25px] z-10 bottom-3"></div>
+            </div>
+            <div class="clear-both"></div>
         <?php endif; ?>
-        
-        <?php if (isset($args['brochure_owner']) && $args['brochure_owner'] === "portal") : ?>
-        <div class="absolute md:hidden top-0 w-full">
-            <div class="relative float-right bg-red w-11/12 h-[25px] z-10 bottom-3"></div>
-        </div>
-        <div class="clear-both"></div>
+
+        <?php if (isset($property['brochure_owner']) && $property['brochure_owner'] === "portal") : ?>
+            <div class="absolute md:hidden top-0 w-full">
+                <div class="relative float-right bg-red w-11/12 h-[25px] z-10 bottom-3"></div>
+            </div>
+            <div class="clear-both"></div>
         <?php endif; ?>
         <div class="w-full mx-auto">
             <div class="md:flex justify-between">
@@ -45,12 +47,12 @@
                 </div>
             </div>
         </div>
-        
-        <?php if (isset($args['brochure_owner']) && ($args['brochure_owner'] === "portal" || $args['brochure_owner'] === "bespoke")) : ?>
-        <div class="absolute hidden md:block bottom-0 w-full">
-            <div class="relative bg-red w-11/12 h-[25px] z-10 -bottom-3"></div>
-        </div>
-        <div class="clear-both"></div>
+
+        <?php if (isset($property['brochure_owner']) && ($property['brochure_owner'] === "portal" || $property['brochure_owner'] === "bespoke")) : ?>
+            <div class="absolute hidden md:block bottom-0 w-full">
+                <div class="relative bg-red w-11/12 h-[25px] z-10 -bottom-3"></div>
+            </div>
+            <div class="clear-both"></div>
         <?php endif; ?>
     </div>
 </section>

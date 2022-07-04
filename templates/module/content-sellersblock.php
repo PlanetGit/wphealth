@@ -10,18 +10,20 @@
  * @since wphealth 1.0
  */
 
+global $property;
+
 ?>
 
 <section>
-    <?php if (isset($args['seller_owner']) && $args['seller_owner'] === 'format') : ?>
+    <?php if (isset($property['seller_owner']) && $property['seller_owner'] === 'format') : ?>
         <div class="w-full mx-auto pt-32">
-    <?php elseif (isset($args['seller_owner']) && $args['seller_owner'] === 'portal') : ?>
+    <?php elseif (isset($property['seller_owner']) && $property['seller_owner'] === 'portal') : ?>
         <div class="w-full mx-auto pt-24">
     <?php else: ?>
         <div class="w-full mx-auto py-24">
     <?php endif; ?>
 
-        <?php if (!isset($args['seller_owner']) || (isset($args['seller_owner']) && $args['seller_owner'] === 'portal')) : ?>
+        <?php if (!isset($property['seller_owner']) || (isset($property['seller_owner']) && $property['seller_owner'] === 'portal')) : ?>
             <div class="relative flex justify-between px-3 md:px-8 mb-2.5">
                 <p class="uppercase">Best Sellers</p>
                 <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +32,7 @@
                     <path d="M39.6206 4.93053L29.9106 14.7899C27.2287 17.513 27.2285 21.9277 29.9101 24.6506C32.5917 27.3734 36.9396 27.3732 39.6214 24.6501L49.3315 14.7908C52.0133 12.0677 52.0135 7.65292 49.3319 4.93009C46.6503 2.20726 42.3024 2.20746 39.6206 4.93053Z" fill="#F4643D" />
                 </svg>
             </div>
-        <?php elseif (isset($args['seller_owner']) && $args['seller_owner'] === 'bulk') : ?>
+        <?php elseif (isset($property['seller_owner']) && $property['seller_owner'] === 'bulk') : ?>
             <div class="relative px-3 md:px-8 mb-8">
                 <span class="flex justify-center">
                     <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,7 +43,7 @@
                 </span>
                 <h1 class="max-w-3xl mx-auto mt-4 htcH1Title text-center"><?php the_field('seller_title'); ?></h1>
             </div>
-        <?php elseif (isset($args['seller_owner']) && $args['seller_owner'] === 'format') : ?>
+        <?php elseif (isset($property['seller_owner']) && $property['seller_owner'] === 'format') : ?>
             <div class="relative flex justify-between px-3 md:px-8 mb-2.5">
                 <p class="uppercase">Featured Products</p>
                 <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +55,7 @@
         <?php endif; ?>
 
         <div class="px-3 md:px-8">
-            <?php if (isset($args['seller_owner']) && $args['seller_owner'] === 'format') : ?>
+            <?php if (isset($property['seller_owner']) && $property['seller_owner'] === 'format') : ?>
                 <div class="md:flex justify-between md:space-x-4">
                     <button class="w-full product-things-btn active">Active Nutrition</button>
                     <button class="w-full product-things-btn">Beauty Within</button>
@@ -96,7 +98,7 @@
                                             <div class="swiper-slide seller-slide">
                                                 <div>
                                                     <img src="<?php the_sub_field('product_image'); ?>" alt="Product image">
-                                                    <?php if (isset($args['seller_owner']) && $args['seller_owner'] === 'format') : ?>
+                                                    <?php if (isset($property['seller_owner']) && $property['seller_owner'] === 'format') : ?>
                                                         <p class="<?php echo (get_sub_field('product_stock_status')) ? "" : "invisible"; ?> relative bottom-6 uppercase bg-green text-white rounded-full text-center w-40 mx-auto py-4 ">In Stock!</p>
                                                     <?php else : ?>
                                                         <p class="<?php echo (get_sub_field('product_stock_status')) ? "" : "invisible"; ?> relative bottom-6 uppercase bg-htcOrange-dark text-white rounded-full text-center w-40 mx-auto py-4 ">In Stock!</p>

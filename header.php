@@ -94,5 +94,3 @@
 	<?php wp_body_open(); ?>
 	<div id="page" class="site body">
 		<?php get_template_part('templates/header/site-header'); ?>
-
-		<div class="main relative center" role="main">

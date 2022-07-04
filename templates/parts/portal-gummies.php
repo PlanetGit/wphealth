@@ -19,7 +19,7 @@ $image = get_field('gummies_background');
         <div class="relative home_intro" style="background-image: url(<?= $image; ?>);">
             <div class="w-full mx-auto px-3">
                 <div class="relative float-right mt-8 md:mr-8">
-                    <p class="uppercase text-white">Gummies</p>
+                    <p class="uppercase text-white"><?php the_field('gummies_module_title'); ?></p>
                 </div>
                 <div class="relative top-32 md:top-50 max-w-md lg:mr-14 md:pl-20">
                     <span>

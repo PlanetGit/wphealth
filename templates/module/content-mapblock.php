@@ -10,11 +10,13 @@
  * @since wphealth 1.0
  */
 
+global $property;
+
 ?>
 <section>
     <div class="w-full mx-auto">
         <div class="py-24 bg-htcGrey px-8">
-            <?php if (isset($args['map_owner']) && $args['map_owner'] === 'bulk') : ?>
+            <?php if (isset($property['map_owner']) && $property['map_owner'] === 'bulk') : ?>
                 <div class="md:pb-12">
                     <span>
                         <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +42,7 @@
                         <img src="<?= get_template_directory_uri() . '/assets/images/map.png' ?>" alt="Map">
                     </div>
                 </div>
-                <?php if (!isset($args['map_owner'])) : ?>
+                <?php if (!isset($property['map_owner'])) : ?>
                     <div class="pt-32 max-w-sm px-6">
                         <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M54.1353 26.723C57.928 26.723 61.0025 23.6011 61.0025 19.7501C61.0025 15.8991 57.928 12.7773 54.1353 12.7773C50.3426 12.7773 47.2681 15.8991 47.2681 19.7501C47.2681 23.6011 50.3426 26.723 54.1353 26.723Z" fill="#01C9B7" />
@@ -57,7 +59,7 @@
                             <a href="#" class="underline text-lg">Learn more</a>
                         </div>
                     </div>
-                <?php elseif (isset($args['map_owner']) && $args['map_owner'] === 'bulk') : ?>
+                <?php elseif (isset($property['map_owner']) && $property['map_owner'] === 'bulk') : ?>
                     <div class="pt-32 max-w-sm px-6">
                         <div class="max-w-md md:mt-32">
                             <p class="uppercase">Bangladesh</p>
@@ -73,7 +75,7 @@
                     </div>
                 <?php endif; ?>
             </div>
-            <?php if (isset($args['map_owner']) && $args['map_owner'] === 'bulk') : ?>
+            <?php if (isset($property['map_owner']) && $property['map_owner'] === 'bulk') : ?>
                 <div class="pt-24">
                     <span>
                         <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">

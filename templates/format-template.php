@@ -1,31 +1,28 @@
 <?php /* Template Name: FormatPage Template */ ?>
 <?php get_header(); ?>
+
 <?php
-
-$layout = array(
-    "intro"         => "intro_block",
-    "module"        => "module_block",
-    "range"         => "range_block",
-    "brochure"      => "brochure",
-    "seller"        => "sellers_block",
-    "vertical"      => "vertical_slider",
-    "newsletter"    => "newsletter",
-    "getintouch"    => "getintouch"
+global $property;
+$property = array(
+    "introblock_owner" => 'format',
+    "module_owner" => 'format',
+    "seller_owner" => 'format',
+    "vertical_owner" => 'format',
+    "newsletter_owner" => 'format',
+    "brochure_owner" => 'format',
+    "intro_bottom" => 'format',
+    "getin_owner" => 'format',
 );
-
-foreach ($layout as $section => $content) {
-    get_template_part('templates/module/content', $content, array(
-        "module_owner" => 'format',
-        "seller_owner" => 'format',
-        "vertical_owner" => 'format',
-        "newsletter_owner" => 'format',
-        "brochure_owner" => 'format',
-        "intro_bottom" => 'format',
-        "getin_owner" => 'format',
-    ));
-
-    if (str_contains($section, "parts"))
-        get_template_part('templates/parts/format', $content);
-}
 ?>
+
+<div class="main relative center" role="main">
+
+    <?php while (have_posts()) : the_post(); ?>
+
+        <?php the_content(); ?>
+
+    <?php endwhile; ?>
+
+</div>
+
 <?php get_footer(); ?>

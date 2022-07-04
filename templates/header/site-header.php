@@ -14,7 +14,7 @@
 		<nav class="relative flex items-center justify-between sm:h-10 md:px-4">
 			<div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
 				<div class="flex items-center justify-between w-full md:w-auto px-4 md:mx-0">
-					<a href="#">
+					<a href="/">
 						<span class="sr-only">HTCHealth</span>
 						<?php if (get_mode()): ?>
 						<img alt="Workflow" class="h-8 w-auto sm:h-10" src="<?= the_field('light_header_logo', 'option') ?>">
@@ -46,7 +46,7 @@
 						</a>
 					<?php endwhile; ?>
 				<?php endif; ?>
-				<a href="#" class="enquiry">Enquiry Now</a>
+				<a href="#" class="enquiry"><?= !empty(get_field('enquiry_button', 'option')) ? the_field('enquiry_button', 'option') : "Enquiry Now" ?></a>
 			</div>
 		</nav>
 	</div>

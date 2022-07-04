@@ -10,6 +10,8 @@
  * @since wphealth 1.0
  */
 
+global $property;
+
 ?>
 <style>
     .nutrition_background {
@@ -37,7 +39,7 @@
         display: table-cell;
         vertical-align: bottom;
         position: relative;
-        width: 16.666%;
+        width: 18%;
         height: 690px;
         background-repeat: no-repeat;
         background-position: center center;
@@ -55,7 +57,8 @@
         width: 18%;
     }
 
-    .accordion ul:hover li:hover {
+    .accordion ul:hover li:hover,
+    .accordion .selected {
         width: 30%;
     }
 
@@ -95,7 +98,7 @@
 
 <section>
     <div class="relative">
-        <?php if (isset($args['nutrition_owner']) && ($args['nutrition_owner'] === "portal")) : ?>
+        <?php if (isset($property['nutrition_owner']) && ($property['nutrition_owner'] === "portal")) : ?>
             <div class="absolute top-0 w-full">
                 <div class="relative bg-yellow w-11/12 h-[25px] z-10 bottom-3"></div>
             </div>
@@ -103,9 +106,9 @@
         <div class="accordion">
             <ul>
                 <?php if (have_rows('nutrition_slider')) : ?>
-                    <?php while (have_rows('nutrition_slider')) : the_row(); ?>
-                        <li class="nutrition_accordion">
-                            <div class="p-4 md:p-10 h-full">
+                    <?php $i = 0; while (have_rows('nutrition_slider')) : the_row(); ?>
+                        <li class="nutrition_accordion <?= $i == 0 ? "selected" : ""; ?>">
+                            <div class="p-4 md:p-10 h-full <?= $i == 0 ? "hidden" : ""; ?>">
                                 <span class="flex justify-between md:justify-center">
                                     <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M55.024 26.723C58.8166 26.723 61.8912 23.6011 61.8912 19.7501C61.8912 15.8991 58.8166 12.7772 55.024 12.7772C51.2313 12.7772 48.1567 15.8991 48.1567 19.7501C48.1567 23.6011 51.2313 26.723 55.024 26.723Z" fill="black" />
@@ -116,7 +119,7 @@
                                 </span>
                                 <p class="htcH4Title md:text-center pt-4 md:pt-0 md:absolute md:bottom-8"><?php the_sub_field('nutrition_title'); ?></p>
                             </div>
-                            <div class="h-full hidden relative show">
+                            <div class="h-full relative show <?= $i !== 0 ? "hidden" : ""; ?>">
                                 <div class="absolute z-10">
                                     <span class="flex justify-center mt-10">
                                         <svg width="62" height="30" viewBox="0 0 62 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -133,7 +136,7 @@
                                 <img class="h-full w-full" src="<?php the_sub_field('nutrition_image'); ?>" alt="Nutrition">
                             </div>
                         </li>
-                    <?php endwhile; ?>
+                    <?php $i += 1; endwhile; ?>
                 <?php endif; ?>
             </ul>
         </div>
@@ -144,12 +147,24 @@
 <script>
     $('.nutrition_accordion').hover(
         function() {
-            $(this).children('div:first-child').addClass('hidden');
-            $(this).children('.show').removeClass('hidden');
+            if (!$(this).hasClass('selected')) {
+                $(this).parents('ul').find('li').removeClass('selected');
+                $(this).addClass('selected');
+
+                // All li element 
+                $(this).parents('ul').find('li > div:first-child').removeClass('hidden');
+                $(this).parents('ul').find('li > .show').addClass('hidden');
+
+                // Hidden firt child
+                $(this).children('div:first-child').addClass('hidden');
+                $(this).children('.show').removeClass('hidden');
+            }
         },
         function() {
-            $(this).children('div:first-child').removeClass('hidden');
-            $(this).children('div:last-child').addClass('hidden');
+            // if (!$(this).hasClass('selected')) {
+            //     $(this).parents('ul').find('li > div:first-child').removeClass('hidden');
+            //     $(this).parents('ul').find('li > .show').addClass('hidden');
+            // }
         }
     );
 </script>

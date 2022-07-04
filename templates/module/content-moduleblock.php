@@ -10,24 +10,24 @@
  * @since wphealth 1.0
  */
 
-
+global $property;
 
 ?>
 
 <section>
-    <?php if (isset($args['module_owner']) && ($args['module_owner'] == 'format' || $args['module_owner'] == 'bulk')): ?>
+    <?php if (isset($property['module_owner']) && ($property['module_owner'] == 'format' || $property['module_owner'] == 'bulk')): ?>
     <div class="w-full mx-auto px-3 md:px-0 md:pr-8">
     <?php else: ?>
     <div class="w-full mx-auto px-3 md:pl-8 md:pr-0">
     <?php endif; ?>
         <div class="relative md:grid md:grid-cols-2">
-            <?php if (isset($args['module_owner']) && ($args['module_owner'] == 'format' || $args['module_owner'] == 'bulk')): ?>
+            <?php if (isset($property['module_owner']) && ($property['module_owner'] == 'format' || $property['module_owner'] == 'bulk')): ?>
             <div class="mt-8 md:mt-0">
                 <img class="w-full h-full" src="<?php the_field('module_image_first'); ?>" alt="">
             </div>
             <?php endif; ?>
             <div class="flex items-center">
-                <?php if (isset($args['module_owner']) && ($args['module_owner'] == 'format' || $args['module_owner'] == 'bulk')): ?>
+                <?php if (isset($property['module_owner']) && ($property['module_owner'] == 'format' || $property['module_owner'] == 'bulk')): ?>
                 <div class="max-w-md pt-24 md:pl-24 md:pt-0">
                 <?php else: ?>
                 <div class="max-w-md pt-24 md:pt-0">
@@ -44,14 +44,14 @@
                     <p class="htcBodyFont mt-4"><?php the_field('module_description_first'); ?></p>
                 </div>
             </div>
-            <?php if (isset($args['module_owner']) && $args['module_owner'] == 'bespoke'): ?>
+            <?php if (isset($property['module_owner']) && $property['module_owner'] == 'bespoke'): ?>
             <div class="mt-8 md:mt-0">
                 <img class="w-full h-full" src="<?php the_field('module_image_first'); ?>" alt="">
             </div>
             <?php endif; ?>
         </div>
         <div class="relative md:grid md:grid-cols-2">
-            <?php if (isset($args['module_owner']) && $args['module_owner'] == 'bespoke'): ?>
+            <?php if (isset($property['module_owner']) && $property['module_owner'] == 'bespoke'): ?>
             <div>
                 <img class="w-full h-full" src="<?php the_field('module_image_second'); ?>" alt="">
             </div>
@@ -62,7 +62,7 @@
                     <p class="htcBodyFont mt-2"><?php the_field('module_description_second'); ?></p>
                 </div>
             </div>
-            <?php if (isset($args['module_owner']) && ($args['module_owner'] == 'format' || $args['module_owner'] == 'bulk')): ?>
+            <?php if (isset($property['module_owner']) && ($property['module_owner'] == 'format' || $property['module_owner'] == 'bulk')): ?>
             <div>
                 <img class="w-full h-full" src="<?php the_field('module_image_second'); ?>" alt="">
             </div>

@@ -40,7 +40,7 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                <p class="uppercase text-white mt-10">Case Study</p>
+                <p class="uppercase text-white mt-10"><?php the_field('known_module_title'); ?></p>
             </div>
         </div>
     </div>

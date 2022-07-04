@@ -9,11 +9,11 @@
 
 ?>
 
-<div class="relative w-full bg-htcGrey md:grid grid-cols-2 px-8 py-20">
+<div class="relative w-full md:grid grid-cols-2 px-8 py-20">
     <div>
-        <span>
+        <a href="/">
             <img alt="Workflow" class="h-8 w-auto sm:h-10" src="<?= the_field('footer_logo', 'option') ?>">
-        </span>
+        </a>
         <div class="mt-16 md:pr-32">
             <?php if (get_field('newsletter_active', 'option')) : ?>
                 <span>
