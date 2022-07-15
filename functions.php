@@ -6,7 +6,7 @@
  * @package WordPress
  * @subpackage wphealth
  * @since wphealth 1.0
- * @author Vladislav Novikov
+ * @author TopNotchDevTeam
  */
 
 if (function_exists('acf_add_options_page')) {

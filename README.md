@@ -10,4 +10,4 @@ Used Swiper Slider
 
 # Author
 
-@PlanetGit
+Top Notch Dev Team
