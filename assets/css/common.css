@@ -20,7 +20,7 @@ a {
 }
 
 /* Header Links */
-.htcLink {
+.htcLink, .htcSubContain, .htcSubLink {
   font-family: 'Helvetica', 'Helvetica Neue';
   font-style: normal;
   font-weight: 500;
@@ -33,9 +33,13 @@ a {
   display: flex;
 }
 
-.htcLink:hover {
+.htcLink:hover, .htcSubContain:hover {
   color: var(--htcWhite);
 }
+.htcSubLink:hover {
+  color: var(--htcGreyDark);
+}
+
 
 /* Font styles */
 .htcH1Title {

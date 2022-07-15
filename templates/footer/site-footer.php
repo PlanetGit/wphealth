@@ -57,10 +57,10 @@
                         <img alt="instagram" src="<?= get_template_directory_uri() . '/assets/images/instagram.svg' ?>">
                     </a>
                     <a href="<?php the_field('linkedin', 'option'); ?>">
-                        <img alt="instagram" src="<?= get_template_directory_uri() . '/assets/images/linkedin.svg' ?>">
+                        <img alt="linkedin" src="<?= get_template_directory_uri() . '/assets/images/linkedin.svg' ?>">
                     </a>
                     <a href="<?php the_field('twitter', 'option'); ?>">
-                        <img alt="instagram" src="<?= get_template_directory_uri() . '/assets/images/twitter.svg' ?>">
+                        <img alt="twitter" src="<?= get_template_directory_uri() . '/assets/images/twitter.svg' ?>">
                     </a>
                 </div>
             </div>
