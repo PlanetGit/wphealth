@@ -6,6 +6,8 @@ PHP, HTML, JavaScript, CSS, JQuery
 
 # LIBRARY
 
+Tailwind CSS Framework
+
 Used Swiper Slider
 
 # Author
